@@ -8,28 +8,18 @@
   <?php require('mdb_js.php'); ?>
   <?php require('mdb_css.php'); ?>
 
-  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-
-  <title>หน้าหลัก</title>
+  <script src="@@path/vendor/chartist/dist/chartist.min.js"></script>
+<script src="@@path/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+  <title>หน้าจัดการผู้ใช้</title>
 </head>
 <body>
     <?php require('components/navbar.php'); ?>
-    <input type="hidden" id="room_id" value="#"></input>
     <br>
       <div class="container">
-        <div>
-          <h5>รายการเบอร์โทรศัพท์</h5>
+        <div class="mt-4">
+          <h5>รีพอร์ท</h5>
         </div>
-        <div class="row">
-          <div class="col-10 mt-4">
-            <a href="form_add_phone.php" class="btn btn-success">Add Phone</a>
-          </div>
-          <div class="col-2 mt-4">
-            <input type="search" id="searchphone" class="form-control" placeholder="ค้นหาเบอร์โทรศัพท์"/>
-            <label style="color: red;font-size: 10px;" id="search_error"></label>
-          </div>
-          </div>
+        <br>
             <div>
               <table class="table table-hover border">
                 <thead>
@@ -44,10 +34,10 @@
                 <tr class="text-center">
                   <th scope="row">1</th>
                   <td>0987290448</td>
-                  <td><input type="checkbox" checked data-toggle="toggle" data-size="sm" data-onstyle="success" data-offstyle="danger"></td>
+                  <td>ระงับการใช้งาน</td>
                   <td>
-                    <a type="button" id="#" href="form_edit_phone.php" class="btn btn-warning">แก้ไข</a> &nbsp;
-                    <button type="button" id="#" class="btn btn-danger">ลบ</button> 
+                    <a class="btn btn-danger">ระงับการใช้งาน</a> &nbsp;
+                       <button type="button" value="" id="btn_des" class="btn btn-success">ใช้งานได้</button>
                     </td>
                 </tr>
                 </tbody>
@@ -57,9 +47,8 @@
 </body>
 <script src="ajax/showroom.js"></script>
 <script>
-
 $(document).ready(function() {
-$('#main').addClass('active');
+$('#report_page').addClass('active');
 });
 </script>
 </html>

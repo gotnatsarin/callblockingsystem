@@ -7,40 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php require('mdb_js.php'); ?>
   <?php require('mdb_css.php'); ?>
-  <title>เพิ่มหมายเลขโทรศัพท์</title>
+  <title>แก้ไขหมายเลขโทรศัพท์</title>
 </head>
 <body>
     <?php require('components/navbar.php'); ?>
-      <br/>
+    <br>
       <div class="container">
-        <div class="toast bg-danger text-white" data-bs-animation="true" id="myToast" data-bs-delay="2000" data-bs-autohide="true">
-          <div class="toast-header bg-danger text-white">
-            <strong class="me-auto"><i class="bi-gift-fill"></i>ผิดพลาด</strong>
-          </div>
-          <div class="toast-body">
-            หมายเลขโทรศัพท์นี้ มีอยู่แล้ว กรุณาตรวจสอบอีกครั้ง
-          </div>
-        </div>
-
-        <div class="toast bg-success text-white" data-bs-animation="true" id="myToast_success" data-bs-delay="2000" data-bs-autohide="true">
-            <div class="toast-header bg-success text-white">
-              <strong class="me-auto"><i class="bi-gift-fill"></i>สำเร็จ</strong>
-            </div>
-          <div class="toast-body">
-            เพิ่มเบอร์โทรศัพท์เรียบร้อย
-          </div>
-        </div>
-
         <div class="mt-2">
-          <h5>เพิ่มหมายเลขโทรศัพท์</h5>
+          <h5>แก้ไขหมายเลขโทรศัพท์</h5>
         </div>
           <div>
+          <form method="post" enctype="multipart/form-data" id="myform">
               <div class="row">
-                <div class="col-3">
+                <div class="col-2">
                 </div>
-                <div class="card col-6 border mt-4">
+                <div class="card col-8 border mt-4">
                   <div class="card-header text-center">
-                    เพิ่มหมายเลขโทรศัพท์
+                    แก้ไขหมายเลขโทรศัพท์
                   </div>
                   <div class="card-body">
                     <div class="card-text text-center">
@@ -62,20 +45,47 @@
                           <option value="0">ระงับการใช้งาน</option>
                           <option value="1">ใช้งานได้</option>
                         </select>
-                      </div>
-                      <br>
+                      </div> 
+                      </br>
                       <div class="text-start mb-2">
                       <a href="main.php" class="btn btn-danger btn-lg  mt-4">ย้อนกลับ</a>
                       <button class="btn btn-success btn-lg me-md-2" type="submit" id="save">บันทึก</button>
                     </div>
                     </div>
+                   
                   </div>
                 </div>
               </div>
             </form>
         </div>
       </div>
-    </body>
-<script src="ajax/add_phone.js"></script>
+        <div class="toast bg-success text-white" data-bs-animation="true" id="editSuccessToast" data-bs-autohide="true">
+            <div class="toast-header bg-success text-white">
+              <strong class="me-auto"><i class="bi-gift-fill"></i>สำเร็จ</strong>
+            </div>
+          <div class="toast-body">
+            แก้ไขหมายเลขโทรศัพท์สำเร็จแล้ว
+          </div>
+        </div>
 
+        <div class="toast bg-danger text-white" data-bs-animation="true" id="editFailToast" data-bs-delay="2000" data-bs-autohide="true">
+            <div class="toast-header bg-danger text-white">
+              <strong class="me-auto"><i class="bi-gift-fill"></i>ผิดพลาด</strong>
+            </div>
+            <div class="toast-body">
+              ไม่สามารถแก้ไขหมายเลขโทรศัพท์ได้ กรุณาลองใหม่อีกครั้ง
+            </div>
+        </div>
+
+        <div class="toast bg-danger text-white" data-bs-animation="true" id="duplicatenumbertoast" data-bs-delay="2000" data-bs-autohide="true">
+            <div class="toast-header bg-danger text-white">
+              <strong class="me-auto"><i class="bi-gift-fill"></i>ผิดพลาด</strong>
+            </div>
+            <div class="toast-body">
+              หมายเลขโทรศัพท์ซ้ำ กรุณาลองใหม่อีกครั้ง
+            </div>
+        </div>
+
+</body>
+<script src="ajax/editroom.js"></script>
 </html>

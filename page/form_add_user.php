@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php require('mdb_js.php'); ?>
   <?php require('mdb_css.php'); ?>
-  <title>เพิ่มหมายเลขโทรศัพท์</title>
+  <title>เพิ่มผู้ใช้งาน</title>
 </head>
 <body>
     <?php require('components/navbar.php'); ?>
@@ -18,7 +18,7 @@
             <strong class="me-auto"><i class="bi-gift-fill"></i>ผิดพลาด</strong>
           </div>
           <div class="toast-body">
-            หมายเลขโทรศัพท์นี้ มีอยู่แล้ว กรุณาตรวจสอบอีกครั้ง
+            ชื่อผู้ใช้นี้ มีอยู่แล้ว กรุณาตรวจสอบอีกครั้ง
           </div>
         </div>
 
@@ -27,12 +27,12 @@
               <strong class="me-auto"><i class="bi-gift-fill"></i>สำเร็จ</strong>
             </div>
           <div class="toast-body">
-            เพิ่มเบอร์โทรศัพท์เรียบร้อย
+            เพิ่มผู้ใช้เรียบร้อย
           </div>
         </div>
 
         <div class="mt-2">
-          <h5>เพิ่มหมายเลขโทรศัพท์</h5>
+          <h5>เพิ่มชื่อผู้ใช้</h5>
         </div>
           <div>
               <div class="row">
@@ -40,32 +40,25 @@
                 </div>
                 <div class="card col-6 border mt-4">
                   <div class="card-header text-center">
-                    เพิ่มหมายเลขโทรศัพท์
+                  เพิ่มชื่อผู้ใช้
                   </div>
                   <div class="card-body">
                     <div class="card-text text-center">
                       <form method="post" enctype="multipart/form-data" id="myform">
-                        <input type="text" class="form-control" name="Phone" id="phonenum" placeholder="เบอร์โทรศัพท์" aria-label="name" aria-describedby="email-addon">
+                        <input type="text" class="form-control" name="username" id="" placeholder="ชื่อผู้ใช้" aria-label="name" aria-describedby="email-addon">
                       </div>
                       <div class="text-center" >
-                        <label style="color: red;font-size: 13px;" id="add_phone_error"></label>
+                        <label style="color: red;font-size: 13px;" id="add_user_error"></label>
                       </div>
                       <div class="text-center">
-                        <input type="text" class="form-control" name="owner" id="owner" placeholder="ชื่อเจ้าของเบอร์" aria-label="name" aria-describedby="email-addon">
+                        <input type="password" class="form-control" name="password" id="" placeholder="รหัสผ่าน" aria-label="name" >
                       </div>
                       <div class="text-center" >
-                        <label style="color: red;font-size: 13px;" id="add_phone_error"></label>
+                        <label style="color: red;font-size: 13px;" id="add_password_error"></label>
                       </div> 
-                      <div class="text-center">
-                        <select id="status" name="status" class="form-select" aria-label="Default select example">
-                          <option selected>สถานะ</option>
-                          <option value="0">ระงับการใช้งาน</option>
-                          <option value="1">ใช้งานได้</option>
-                        </select>
-                      </div>
                       <br>
                       <div class="text-start mb-2">
-                      <a href="main.php" class="btn btn-danger btn-lg  mt-4">ย้อนกลับ</a>
+                      <a href="form_user.php" class="btn btn-danger btn-lg  mt-4">ย้อนกลับ</a>
                       <button class="btn btn-success btn-lg me-md-2" type="submit" id="save">บันทึก</button>
                     </div>
                     </div>
@@ -77,5 +70,9 @@
       </div>
     </body>
 <script src="ajax/add_phone.js"></script>
-
+<script>
+$(document).ready(function() {
+$('#user').addClass('active');
+});
+</script>
 </html>

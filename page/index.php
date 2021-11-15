@@ -13,14 +13,8 @@
       <?php require('mdb_css.php'); ?>
       <title>Call Blocking System</title>
   </head>
-  <style>
-    .body{
-      background-color: rgba(0, 156, 255, 0.3);
-    }
-  </style>
   <body>
-    <div class="body" style="height: 100vh">
-      <div class="toast bg-danger text-white" data-bs-animation="true" id="myToast" data-bs-delay="2000" data-bs-autohide="true">
+    <div class="toast bg-danger text-white" data-bs-animation="true" id="myToast" data-bs-delay="2000" data-bs-autohide="true">
         <div class="toast-header bg-danger text-white">
           <strong class="me-auto"><i class="bi-gift-fill"></i>ผิดพลาด</strong>
         </div>
@@ -28,6 +22,8 @@
           ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง
         </div>
       </div>
+    <!-- <div class="body" style="height: 100vh"> -->
+    <div class="bg-image" style="background-image: url('https://www.securuscomms.co.uk/wp-content/uploads/2019/10/Understanding-VoIP-as-a-Service-image1.jpg'); height:100vh;">
       <br/><br/>
         <div class="loginBoxContent">
           <div class="loginBoxContent_text">
@@ -61,6 +57,7 @@
                 <br/>
               </div>          
         </div>
+      </div>
   </body>
   <script src="ajax/login.js"></script>
 </html>

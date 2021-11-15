@@ -47,8 +47,9 @@ $(document).ready(function() {
                 },
                 success: function(data) {
                     var new_data = JSON.parse(data)
+                    console.log(new_data)
                     if (new_data.status == "true") {
-                        window.location.href = `main.php?room_id=${new_data.id}`;
+                        window.location.href = `main.php`;
                     } else {
                         $("#myToast").toast("show");
                     }
