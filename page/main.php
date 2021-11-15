@@ -40,26 +40,22 @@
                     <th class="text-center">Action</th>
                   </tr>
                 </thead>
-                <tbody id="tablebody">
-                <tr class="text-center">
-                  <th scope="row">1</th>
-                  <td>0987290448</td>
-                  <td><input type="checkbox" checked data-toggle="toggle" data-size="sm" data-onstyle="success" data-offstyle="danger"></td>
-                  <td>
-                    <a type="button" id="#" href="form_edit_phone.php" class="btn btn-warning">แก้ไข</a> &nbsp;
-                    <button type="button" id="#" class="btn btn-danger">ลบ</button> 
+                <tbody id="table_phone">
+                  <!-- <tr class="text-center">
+                    <th scope="row">1</th>
+                    <td>0987290448</td>
+                    <td><input type="checkbox" checked data-toggle="toggle" data-size="sm" data-onstyle="success" data-offstyle="danger"></td>
+                    <td>
+                      <a type="button" id="#" href="form_edit_phone.php" class="btn btn-warning">แก้ไข</a> &nbsp;
+                      <button type="button" id="#" class="btn btn-danger">ลบ</button> 
                     </td>
-                </tr>
+                  </tr> -->
                 </tbody>
               </table>
           </div>
       </div>
 </body>
-<script src="ajax/showroom.js"></script>
-<script>
 
-$(document).ready(function() {
-$('#main').addClass('active');
-});
-</script>
+<script src="ajax/list_phone.js"></script>
+
 </html>

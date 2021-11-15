@@ -42,12 +42,12 @@
                 <form action="javascript:void(0);" style="text-align: left;">
                   <div class="input-group">
                     <span class="input-group-text border-0" id="search-addon"><i class="fas fa-user"></i></span>
-                    <input id="username" autocomplete="off" type="text" class="form-control rounded" placeholder="Username" aria-label="username" aria-describedby="username-addon"/>
+                    <input id="username" autocomplete="off" type="text" class="form-control rounded" placeholder="Username" aria-label="username" aria-describedby="username-addon" maxlength="255"/>
                   </div>
                   <div class="text-center" ><label style="color: red;font-size: 13px;" id="username_error_message"></label></div>
                   <div class="input-group">
                     <span class="input-group-text border-0" id="search-addon"><i class="fas fa-unlock-alt"></i></span> 
-                    <input id="password" autocomplete="off" type="password" class="form-control rounded"  placeholder="Password" aria-label="password" aria-describedby="password-addon" />
+                    <input id="password" autocomplete="off" type="password" class="form-control rounded"  placeholder="Password" aria-label="password" aria-describedby="password-addon" maxlength="255" />
                   </div>
                   <div class="text-center" ><label style="color: red;font-size: 13px;" id="password_error_message"></label></div>
                   <div class="text-center">

@@ -19,9 +19,9 @@
           <div>
           <form method="post" enctype="multipart/form-data" id="myform">
               <div class="row">
-                <div class="col-2">
+                <div class="col-3">
                 </div>
-                <div class="card col-8 border mt-4">
+                <div class="card col-6 border mt-4">
                   <div class="card-header text-center">
                     แก้ไขหมายเลขโทรศัพท์
                   </div>
