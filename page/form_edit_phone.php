@@ -28,16 +28,16 @@
                   <div class="card-body">
                     <div class="card-text text-center">
                       <form method="post" enctype="multipart/form-data" id="myform">
-                        <input type="text" class="form-control" name="Phone" id="phonenum" placeholder="เบอร์โทรศัพท์" aria-label="name" aria-describedby="email-addon">
+                        <input type="text" class="form-control" name="Phone" id="phonenum" maxlength="10" placeholder="เบอร์โทรศัพท์" aria-label="name" aria-describedby="email-addon">
                       </div>
                       <div class="text-center" >
-                        <label style="color: red;font-size: 13px;" id="add_phone_error"></label>
+                        <label style="color: red;font-size: 13px;" id="phone_error"></label>
                       </div>
                       <div class="text-center">
                         <input type="text" class="form-control" name="owner" id="owner" placeholder="ชื่อเจ้าของเบอร์" aria-label="name" aria-describedby="email-addon">
                       </div>
                       <div class="text-center" >
-                        <label style="color: red;font-size: 13px;" id="add_phone_error"></label>
+                        <label style="color: red;font-size: 13px;" id="owner_error"></label>
                       </div> 
                       <div class="text-center">
                         <select id="status" name="status" class="form-select" aria-label="Default select example">
@@ -45,11 +45,12 @@
                           <option value="0">ระงับการใช้งาน</option>
                           <option value="1">ใช้งานได้</option>
                         </select>
-                      </div> 
+                      </div>
                       </br>
                       <div class="text-start mb-2">
-                      <a href="main.php" class="btn btn-danger btn-lg  mt-4">ย้อนกลับ</a>
-                      <button class="btn btn-success btn-lg me-md-2" type="submit" id="save">บันทึก</button>
+                        <input type="hidden" id="idEdit" value="<?php echo $_GET['id'];?>" />
+                        <a href="main.php" class="btn btn-danger btn-lg  mt-4">ย้อนกลับ</a>
+                        <button class="btn btn-success btn-lg me-md-2" type="button" id="save">บันทึก</button>
                     </div>
                     </div>
                    
@@ -73,19 +74,19 @@
               <strong class="me-auto"><i class="bi-gift-fill"></i>ผิดพลาด</strong>
             </div>
             <div class="toast-body">
-              ไม่สามารถแก้ไขหมายเลขโทรศัพท์ได้ กรุณาลองใหม่อีกครั้ง
+            หมายเลขโทรศัพท์ซ้ำ กรุณาลองใหม่อีกครั้ง
             </div>
         </div>
 
-        <div class="toast bg-danger text-white" data-bs-animation="true" id="duplicatenumbertoast" data-bs-delay="2000" data-bs-autohide="true">
+        <!-- <div class="toast bg-danger text-white" data-bs-animation="true" id="duplicatenumbertoast" data-bs-delay="2000" data-bs-autohide="true">
             <div class="toast-header bg-danger text-white">
               <strong class="me-auto"><i class="bi-gift-fill"></i>ผิดพลาด</strong>
             </div>
             <div class="toast-body">
               หมายเลขโทรศัพท์ซ้ำ กรุณาลองใหม่อีกครั้ง
             </div>
-        </div>
-
+        </div> -->
 </body>
-<script src="ajax/editroom.js"></script>
+<script src="ajax/show_phone.js"></script>
+<script src="ajax/editphone.js"></script>
 </html>

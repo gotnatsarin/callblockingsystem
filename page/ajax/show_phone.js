@@ -1,10 +1,16 @@
 $(document).ready(function() {
-    var message = "กรุณาระบุข้อมูลให้ครบ";
-    var phonenumber = $('#phonenum').val();
-    var owner = $('owner').val();
-    var status = $('status').val();
+    $.ajax({
+        type: "GET",
+        url: "query/show_phone.php",
+        data: {
+            id: $('#idEdit').val(),
+        },
+        success: function(data) {
+            var new_data = JSON.parse(data);
 
-    
-
-
+            $('#phonenum').val(new_data.showPhoneObj[0].phonenumber);
+            $('#owner').val(new_data.showPhoneObj[0].owner);
+            $('#status').val(new_data.showPhoneObj[0].status);
+        }
+    });
 });

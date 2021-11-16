@@ -7,10 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php require('mdb_js.php'); ?>
   <?php require('mdb_css.php'); ?>
-
-  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-
+  
   <title>หน้าหลัก</title>
 </head>
 <body>
@@ -54,8 +51,14 @@
               </table>
           </div>
       </div>
+
 </body>
 
 <script src="ajax/list_phone.js"></script>
 
+<script>
+$(document).ready(function() {
+$('#main').addClass('active');
+});
+</script>
 </html>

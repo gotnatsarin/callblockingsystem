@@ -70,8 +70,8 @@ $(document).ready(function() {
                 url: 'query/change_password.php',
                 data: jsonObj,
                 success: function(data) {
-                    console.log(jsonObj)
                     var new_data = JSON.parse(data)
+                    console.log(new_data)
                     if (new_data.status == "true") {
                         console.log("เปลี่ยนรหัสผ่านเรียบร้อยแล้ว")
                         $("#changesuccess").toast("show");

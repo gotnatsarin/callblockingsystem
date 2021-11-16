@@ -8,5 +8,7 @@ $row = array();
 
 $r = mysqli_fetch_assoc($query_exe);
 
-print json_encode($r,JSON_UNESCAPED_UNICODE);
+$row['showPhoneObj'][] = $r;
+
+print json_encode($row,JSON_UNESCAPED_UNICODE);
 ?>
