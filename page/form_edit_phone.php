@@ -89,4 +89,10 @@
 </body>
 <script src="ajax/show_phone.js"></script>
 <script src="ajax/editphone.js"></script>
+
+<script>
+  $(document).ready(function() {
+  $('#main').addClass('active');
+  });
+  </script>
 </html>

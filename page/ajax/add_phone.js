@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var message = "กรุณาระบุข้อมูลให้ครบ";
-    var pattern = /^[0-9]*$/
+    var number = /^[0-9]*$/
         // var status
         // var owner
 
@@ -41,7 +41,9 @@ $(document).ready(function() {
         status = $('#status').val();
         owner = $('#owner').val();
         phonenumber = $('#phonenum').val();
-        var jsonObj = { "phonenumber": phonenumber, "owner": owner, "status": status };
+        var id = $('#idAdd').val();
+        var jsonObj = { "phonenumber": phonenumber, "owner": owner, "status": status, "id": id };
+
         if (phonenumber == "" || owner == "" || status == "สถานะ") {
             if (phonenumber == "") {
                 $('#phonenum').addClass('border border-danger');
@@ -55,10 +57,14 @@ $(document).ready(function() {
                 $('#status').addClass('border border-danger');
                 $('#status_error').html('กรุณาเลือกสถานะที่ต้องการ');
             }
-        } else if (phonenumber.length != 10) {
+        } else if (phonenumber.length != 10 || !number.test(phonenumber)) {
             if (phonenumber.length != 10) {
                 $('#phonenum').addClass('border border-danger');
-                $('#add_phone_error').html('กรุณาใส่หมายเลขให้ครบ');
+                $('#phone_error').html('กรุณาใส่หมายเลขให้ครบ');
+            }
+            if (!number.test(phonenumber)) {
+                $('#phonenum').addClass('border border-danger');
+                $('#phone_error').html('กรุณากรอกแค่หมายเลข');
             }
         } else {
             $.ajax({

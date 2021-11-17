@@ -41,7 +41,9 @@
                   <!-- <tr class="text-center">
                     <th scope="row">1</th>
                     <td>0987290448</td>
-                    <td><input type="checkbox" checked data-toggle="toggle" data-size="sm" data-onstyle="success" data-offstyle="danger"></td>
+                    <td>
+                      <button class="btn btn-success" id="Toggle">สถานะ</button>
+                    </td>
                     <td>
                       <a type="button" id="#" href="form_edit_phone.php" class="btn btn-warning">แก้ไข</a> &nbsp;
                       <button type="button" id="#" class="btn btn-danger">ลบ</button> 
@@ -55,10 +57,14 @@
 </body>
 
 <script src="ajax/list_phone.js"></script>
-
+<!-- <script src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
 <script>
-$(document).ready(function() {
-$('#main').addClass('active');
-});
+    $(document).ready(function () {
+        $("#Toggle").toggle(function () {
+            $(this).css("background-color", "green");
+        }, function () {
+            $(this).css("background-color", "red");
+        });
+    }); -->
 </script>
 </html>

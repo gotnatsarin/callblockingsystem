@@ -51,7 +51,7 @@ CREATE TABLE `phone` (
 --
 
 INSERT INTO `phone` (`id`, `phonenumber`, `owner`, `status`) VALUES
-(1, '0897495923', 'army', 1);
+(1, '0897495924', 'army', 1);
 
 -- --------------------------------------------------------
 
