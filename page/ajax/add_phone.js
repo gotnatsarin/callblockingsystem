@@ -41,8 +41,7 @@ $(document).ready(function() {
         status = $('#status').val();
         owner = $('#owner').val();
         phonenumber = $('#phonenum').val();
-        var id = $('#idAdd').val();
-        var jsonObj = { "phonenumber": phonenumber, "owner": owner, "status": status, "id": id };
+        var jsonObj = { "phonenumber": phonenumber, "owner": owner, "status": status };
 
         if (phonenumber == "" || owner == "" || status == "สถานะ") {
             if (phonenumber == "") {

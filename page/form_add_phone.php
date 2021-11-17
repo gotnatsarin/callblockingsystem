@@ -68,7 +68,6 @@
                       </div>
                       <br>
                       <div class="text-start mb-2">
-                      <input type="hidden" id="idAdd" value="<?php echo $_GET['id'];?>" />
                         <a href="main.php" class="btn btn-danger btn-lg  mt-4">ย้อนกลับ</a>
                         <button type="button" class="btn btn-success btn-lg me-md-2" id="save">บันทึก</button>
                       </div>

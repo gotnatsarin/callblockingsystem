@@ -30,7 +30,7 @@
                 <a class="nav-link" id="main" href="main.php">หน้าหลัก</a>
               </li>
               <li id="nav_booking" class="nav-item">
-                <a class="nav-link" aria-current="page" id="command_page" href="form_command_page.php">หน้าคำสั่ง</a>
+                <a class="nav-link" aria-current="page" id="command_page" href="form_command_page.php">หน้าตั่งค่าระบบ</a>
               </li>
               <li id="form_result" class="nav-item">
                 <a class="nav-link"  id="report_page" href="form_report_page.php">หน้ารายงาน</a>
