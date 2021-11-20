@@ -53,7 +53,6 @@ $(document).ready(function() {
                 $('#status').addClass('border border-danger');
             }
         } else if (phonenumber.length != 10 || !number.test(phonenumber)) {
-            console.log(number.test(phonenumber))
             if (phonenumber.length != 10) {
                 $('#phonenum').addClass('border border-danger');
                 $('#phone_error').html('กรุณาใส่หมายเลขให้ครบ');

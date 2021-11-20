@@ -7,9 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php require('mdb_js.php'); ?>
   <?php require('mdb_css.php'); ?>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-  <script src="@@path/vendor/chartist/dist/chartist.min.js"></script>
-<script src="@@path/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
   <title>หน้าจัดการผู้ใช้</title>
 </head>
 <body>
@@ -20,6 +19,14 @@
           <h5>รีพอร์ท</h5>
         </div>
         <br>
+        <div class="row mb-4">
+          <div class="col-3">
+          </div>
+          <div class="col-8">
+            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+          </div>
+        </div>
+
             <div>
               <table class="table table-hover border">
                 <thead>
@@ -46,9 +53,39 @@
       </div>
 </body>
 <script src="ajax/showroom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script>
 $(document).ready(function() {
 $('#report_page').addClass('active');
+});
+</script>
+
+<script>
+var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+var yValues = [55, 49, 44, 24, 15];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Call Blocking System"
+    }
+  }
 });
 </script>
 </html>

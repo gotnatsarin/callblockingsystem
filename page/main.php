@@ -23,7 +23,7 @@
             <a href="form_add_phone.php" class="btn btn-success">Add Phone</a>
           </div>
           <div class="col-2 mt-4">
-            <input type="search" id="searchphone" class="form-control" placeholder="ค้นหาเบอร์โทรศัพท์"/>
+            <input type="search"  name="search_text" id="search_text" class="form-control" placeholder="ค้นหาเบอร์โทรศัพท์"/>
             <label style="color: red;font-size: 10px;" id="search_error"></label>
           </div>
           </div>
@@ -57,14 +57,71 @@
 </body>
 
 <script src="ajax/list_phone.js"></script>
-<!-- <script src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $("#Toggle").toggle(function () {
-            $(this).css("background-color", "green");
-        }, function () {
-            $(this).css("background-color", "red");
-        });
-    }); -->
+    $(document).ready(function() {
+      $('#searchphone').keyup(function(){
+          var txt = $(this).val();
+          if(txt != '')
+          {
+            $.ajax({
+              url: "query/search.php",
+              method: "post",
+              data: {search:txt},
+              dataType: "text",
+              success:function(data)
+              {
+                $('#tablephone').html(data);
+              }
+            });
+          }
+          else {
+                alert("ไม่พบข้อมูลที่ค้นหา");
+            }
+          {
+            
+          }
+      });
+    });
 </script>
+
+<!-- <script>
+        $(function(){
+            $('form#search').submit(function(event){
+                event.preventDefault();
+
+                //รับค่าจากฟอร์ม
+
+                var datetime = $('input#datetime').val();
+                var customernumber = $('input#customernumber').val();
+                var servicename = $('input#servicename').val();
+                var agentname = $('input#agentname').val();
+                var agentid = $('input#agentid').val();
+                var question = $('input#question').val();
+
+                // ส่งค่าไป search
+                $.ajax({
+                    url:'queyr/search.php',
+                    type:'POST',
+                    dataType:'json',
+                    data:{
+                        datetime:datetime,
+                        customernumber:customernumber,
+                        servicename:servicename,
+                        agentname:agentname,
+                        agentid:agentid,
+                        question:question
+                    },
+                    success:function(data){
+                        if(data.lenght !=0){
+                            // พบข้อมูล
+
+                        }else{
+                            alert("ไม่พบข้อมูลที่ค้นหา");
+                        }
+                    }
+                });
+
+            });
+        });
+    </script> -->
 </html>

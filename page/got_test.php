@@ -1,93 +1,43 @@
-$(document).ready(function() {
-    var idroom = null;
-    $('#manage_room a').addClass('active');
-    const deleteThisRoom = () => {
-        $('#mymodal').modal('hide')
-        $.ajax({
-            type: 'POST',
-            url: 'query/deleteRoom.php',
-            data: {
-                room_id: idroom,
-            },
-            success: function(data) {
-                if (data == "true") {
-                    $.ajax({
-                        type: 'GET',
-                        url: 'query/showroom.php',
-                        data: {},
-                        success: function(data) {
-                            $(`tbody tr`).remove()
-                            try {
-                                var new_datas = JSON.parse(data).roomObj;
-                                new_datas.forEach(((element, index) => {
-                                    $('#tablebody').append(`<tr>
-                            <th scope='row'>${++index}</th>
-                            <td class='text-center'>${element['room_name']}</td>
-                            <td class='text-center'>${element['room_place']}</td>
-                            <td class='text-center'>${element['room_capacity']}</td>
-                            <td class='text-center'>
-                            <button id='deleteroom' value=${element['room_id']} type='button' class='btn btn-danger'>ลบ</button>
-                            &nbsp;<a href='form_edit_meeting_room.php?id=${element['room_id']}' class='btn btn-warning'>แก้ไข</a>
-                                </td>
-                              </td>
-                            </tr>`)
-                                    console.log(element)
-                                }));
-                            } catch {
-                                console.log("Empty")
-                            }
-                        }
-                    });
-                    $("#delete_success").toast("show")
-                } else {
-                    $("#delete_fail").toast("show")
-                }
-            }
-        });
-    };
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    $("#delete_success").toast({
-        delay: 1500
-    });
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <?php require('mdb_js.php'); ?>
+  <?php require('mdb_css.php'); ?>
 
-    $.ajax({
-        type: 'GET',
-        url: 'query/showroom.php',
-        data: {},
-        success: function(data) {
-            try {
-                var new_data = JSON.parse(data).roomObj;
-                new_data.forEach(((element, index) => {
-                    $('#tablebody').append(`<tr>
-                      <th scope='row'>${++index}</th>
-                      <td class='text-center'>${element['room_name']}</td>
-                      <td class='text-center'>${element['room_place']}</td>
-                      <td class='text-center'>${element['room_capacity']}</td>
-                      <td class='text-center'>
-                      <button id='deleteroom' value=${element['room_id']} type='button' class='btn btn-danger'>ลบ</button>
-                      &nbsp;<a href='form_edit_meeting_room.php?id=${element['room_id']}' class='btn btn-warning'>แก้ไข</a>
-                            </td>
-                          </td>
-                      </tr>`)
-                    console.log(element)
-                }));
-            } catch {
-                console.log("Empty")
-            }
-        }
-    });
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
-    $('#confirmdelete').click(function() {
-        deleteThisRoom();
-    });
+<script>
+  var xValue = [];
+  var username = localStorage.getItem('username');
 
-    $('#closemodal').click(function() {
-        $('#mymodal').modal('hide')
-    });
+  console.log(username);
 
-    $(document).on("click", "#deleteroom", function() {
-        idroom = $(this).val();
-        $('#mymodal').modal('show')
-    });
-
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValue,
+    datasets: [{
+      // backgroundColor: ,
+      data: username
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
 });
+</script>
+</body>
+
+<script src='ajax/list_user.js'></script>
+</html>

@@ -1,12 +1,15 @@
 $(document).ready(function() {
+  var items = [];
+
     $.ajax({
-        type: 'post',
+        type: 'GET',
         url: 'query/showuser.php',
         data: {},
         success: function(data) {
             var new_data = JSON.parse(data).userObj;
             console.log(new_data);
             new_data.forEach(((element, index) => {
+              items.push(element.username)
                 $('#tbuser').append(`
               <tr>
                 <td>${++index}</td>
@@ -18,6 +21,8 @@ $(document).ready(function() {
               </tr>
               `);
             }));
+
+            localStorage.setItem('username' , items)
         }
     })
 });
