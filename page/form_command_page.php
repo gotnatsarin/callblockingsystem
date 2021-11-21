@@ -74,22 +74,35 @@
                   </div>
                 </div>
                 <div class="row text-end mb-4">
-                <label class="mb-2">Status Trunk</label>
+                  <label class="mb-2">Status Trunk</label>
                   <div class="col-1">
                   </div>
                   <div class="col-12 text-end">
-                      <textarea id="text_area" class="md-textarea form-control mt-2" rows="2" cols="50"></textarea>
+                    <div class="text-center">
+                      <button class="btn btn-success btn-lg " type="button" onclick="focusScrollMethod()" data-mdb-toggle="collapse" data-mdb-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+                       แสดง
+                      </button>
+                      <div class="collapse multi-collapse mt-3 " id="multiCollapseExample2">
+                          <lable>test1 : 6001 1</lable> <br>
+                          <lable>test1 : 6001 1</lable> <br>
+                          <lable>test1 : 6001 1</lable> <br>
+                          <lable>test1 : 6001 1</lable> <br>
+                          <lable>test1 : 6001 1</lable> <br>
+                          <lable>test1 : 6001 1</lable> <br>
+                      </div>
+                    </div>
                   </div> 
                 </div>
-              </form>
-              <div class="mt-2">
-              <table class="table table-borderless table-hover"></table>
-              </div>
+              </form> 
           </div> 
-        </div>
-
-          
+        </div>     
 </body>
+
+<script>
+  focusScrollMethod = function getFocus() {
+  document.getElementById("myButton").focus({preventScroll:false});
+}
+</script>
 
 <script>
     $(document).ready(function() {

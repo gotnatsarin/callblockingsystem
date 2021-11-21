@@ -10,7 +10,7 @@ $check_phonenumber = "SELECT phonenumber FROM phone WHERE id != '$id' AND phonen
 $query = mysqli_query($conn,$check_phonenumber);
 
 if(mysqli_num_rows($query)==1){
-  echo json_encode(array("status"=>"false"));
+  echo json_encode(array("status"=>"This phone number is already in used"));
 }else{
   $sql= "UPDATE phone SET phonenumber='$phonenumber', owner='$owner',status='$status' WHERE id = '$id'";
   if(mysqli_query($conn,$sql)) {

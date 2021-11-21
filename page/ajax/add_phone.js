@@ -8,7 +8,7 @@ $(document).ready(function() {
         if ($(this).val() == "") {
             $('#phonenum').addClass('border border-danger');
             $('#add_phone_error').html('กรุณาระบุหมายเลขโทรศัพท์');
-        } else if (!pattern.test($(this).val())) {
+        } else if (!number.test($(this).val())) {
             $('#phonenum').addClass('border border-danger');
             $('#add_phone_error').html('กรุณาใส่แค่ตัวเลข');
         } else {

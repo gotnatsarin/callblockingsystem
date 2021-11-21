@@ -1,7 +1,7 @@
 <?php
 require_once('connect.php');
 
-$query = "SELECT * FROM phone";
+$query = "SELECT * FROM phone ORDER BY status DESC";
 $query_exe = mysqli_query($conn,$query);
 $row = array();
 

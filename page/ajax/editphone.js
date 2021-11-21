@@ -39,15 +39,15 @@ $(document).ready(function() {
         formdata.append('status', status);
         formdata.append('id', id);
 
-        if (phonenumber == "" || owner == "" || status == "สถานะ") {
+        if (phonenumber == "" || status == "สถานะ") {
             if (phonenumber == "") {
                 $('#phone_error').html('กรุณาระบุเบอร์โทรศัพท์');
                 $('#phonenumber').addClass('border border-danger');
             }
-            if (owner == "") {
-                $('#owner_error').html('กรุณาระบุชื่อเจ้าของเบอร์');
-                $('#owner').addClass('border border-danger');
-            }
+            // if (owner == "") {
+            //     $('#owner_error').html('กรุณาระบุชื่อเจ้าของเบอร์');
+            //     $('#owner').addClass('border border-danger');
+            // }
             if (status == "") {
                 $('#status_error').html('กรุณาระบุสถานะ');
                 $('#status').addClass('border border-danger');

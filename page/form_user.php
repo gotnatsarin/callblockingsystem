@@ -34,9 +34,9 @@
         </div>
         <br>
         <div class="row">
-          <div class="col-1">
+          <div class="col-3">
           </div>
-          <div class="col-10">
+          <div class="col-6">
             <div class="mb-4">
               <a href="form_add_user.php" class="btn btn-success">เพิ่มผู้ใช้งาน</a>
             </div>
@@ -45,7 +45,7 @@
                 <tr>
                   <th class="col-2">ลำดับที่</th>
                   <th class=" col-5 text-center">ชื่อผู้ใช้</th>
-                  <th class="text-center">Action</th>
+                  <th class="col-5 text-center">Action</th>
                 </tr>
               </thead>
               <tbody id="tbuser">

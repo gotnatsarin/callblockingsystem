@@ -69,7 +69,14 @@
               </table>
           </div>
       </div>
-
+        <div class="toast bg-danger text-white" data-bs-animation="true" id="noID" data-bs-delay="2000" data-bs-autohide="true">
+            <div class="toast-header bg-danger text-white">
+              <strong class="me-auto"><i class="bi-gift-fill"></i>ผิดพลาด</strong>
+            </div>
+            <div class="toast-body">
+            ไม่พบเบอร์โทรศัพท์นี้ กรุณาลองใหม่อีกครั้ง
+            </div>
+        </div>
 </body>
 
 <script src="ajax/list_phone.js"></script>

@@ -16,14 +16,14 @@
     <br>
       <div class="container">
         <div class="mt-4">
-          <h5>รีพอร์ท</h5>
+          <h5>รายงาน</h5>
         </div>
         <br>
         <div class="row mb-4">
           <div class="col-3">
           </div>
           <div class="col-8">
-            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+            <canvas id="reportChart" style="width:100%;max-width:600px;"></canvas>
           </div>
         </div>
 
@@ -52,40 +52,12 @@
           </div>
       </div>
 </body>
-<script src="ajax/showroom.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<script src="ajax/showReportChart.js"></script>
 <script>
 $(document).ready(function() {
 $('#report_page').addClass('active');
 });
 </script>
 
-<script>
-var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-var yValues = [55, 49, 44, 24, 15];
-var barColors = [
-  "#b91d47",
-  "#00aba9",
-  "#2b5797",
-  "#e8c3b9",
-  "#1e7145"
-];
-
-new Chart("myChart", {
-  type: "pie",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "Call Blocking System"
-    }
-  }
-});
-</script>
 </html>
