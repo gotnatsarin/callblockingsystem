@@ -93,5 +93,5 @@
   $(document).ready(function() {
   $('#main').addClass('active');
   });
-  </script>
+</script>
 </html>

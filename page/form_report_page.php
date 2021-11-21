@@ -22,34 +22,49 @@
         <div class="row mb-4">
           <div class="col-3">
           </div>
-          <div class="col-8">
-            <canvas id="reportChart" style="width:100%;max-width:600px;"></canvas>
+          <div class="card border col-6 mb-4">
+            <div class="card-header text-center">
+              รายงานเบอร์โดนบล็อค
+            </div>
+              <div class="card-body">
+                <div class="card-text">
+                  <canvas id="reportChart" style="width:100%;max-width:600px;"></canvas>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-            <div>
+        <div class="row mt-4">
+          <div class="col-2">
+          </div>
+            <div class="col-8">
               <table class="table table-hover border">
                 <thead>
                   <tr>
-                    <th class="col-1">ลำดับที่</th>
-                    <th class=" col-4 text-center">หมายเลขโทรศัพท์</th>
-                    <th class=" col-4 text-center">สถานะ</th>
-                    <th class="text-center">Action</th>
+                    <th class="col-2">ลำดับที่</th>
+                    <th class=" col-5 text-center">หมายเลขโทรศัพท์</th>
+                    <th class="text-center">timeStamp</th>
                   </tr>
                 </thead>
                 <tbody id="tablebody">
-                <tr class="text-center">
-                  <th scope="row">1</th>
-                  <td>0987290448</td>
-                  <td>ระงับการใช้งาน</td>
-                  <td>
-                    <a class="btn btn-danger">ระงับการใช้งาน</a> &nbsp;
-                       <button type="button" value="" id="btn_des" class="btn btn-success">ใช้งานได้</button>
-                    </td>
-                </tr>
+                  <tr class="text-center">
+                    <th scope="row" class="text-end">1</th>
+                    <td>0987290448</td>
+                    <td>2021/11/22 22:05:49</td>
+                  </tr>
+                  <tr class="text-center">
+                    <th scope="row" class="text-end">2</th>
+                    <td>0987290448</td>
+                    <td>2021/11/22 22:05:49</td>
+                  </tr>
+                  <tr class="text-center">
+                    <th scope="row" class="text-end">3</th>
+                    <td>0987290448</td>
+                    <td>2021/11/22 22:05:49</td>
+                  </tr>
                 </tbody>
               </table>
-          </div>
+            </div>
+          </div> 
       </div>
 </body>
 
