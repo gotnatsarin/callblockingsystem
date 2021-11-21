@@ -43,15 +43,15 @@ $(document).ready(function() {
         phonenumber = $('#phonenum').val();
         var jsonObj = { "phonenumber": phonenumber, "owner": owner, "status": status };
 
-        if (phonenumber == "" || owner == "" || status == "สถานะ") {
+        if (phonenumber == "" || status == "สถานะ") {
             if (phonenumber == "") {
                 $('#phonenum').addClass('border border-danger');
                 $('#add_phone_error').html(message);
             }
-            if (owner == "") {
-                $('#owner').addClass('border border-danger');
-                $('#owner_error').html('กรุณาระบุชื่อเจ้าของเบอร์โทรศัพท์');
-            }
+            // if (owner == "") {
+            //     $('#owner').addClass('border border-danger');
+            //     $('#owner_error').html('กรุณาระบุชื่อเจ้าของเบอร์โทรศัพท์');
+            // }
             if (status == "สถานะ") {
                 $('#status').addClass('border border-danger');
                 $('#status_error').html('กรุณาเลือกสถานะที่ต้องการ');

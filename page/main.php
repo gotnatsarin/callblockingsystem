@@ -13,6 +13,22 @@
 <body>
     <?php require('components/navbar.php'); ?>
     <input type="hidden" id="room_id" value="#"></input>
+  <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">กรุณายืนยัน</h5>
+        </div>
+        <div class="modal-body">
+          ท่านต้องการลบเบอร์โทรศัพท์นี้ใช่หรือไม่ ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closemodal" class="btn btn-danger" >ยกเลิก</button>
+          <button type="button" id="confirmdelete" class="btn btn-success">ยืนยันการลบ</button>
+        </div>
+      </div>
+    </div>
+  </div>
     <br>
       <div class="container">
         <div>
@@ -20,7 +36,7 @@
         </div>
         <div class="row">
           <div class="col-10 mt-4">
-            <a href="form_add_phone.php" class="btn btn-success">Add Phone</a>
+            <a href="form_add_phone.php" class="btn btn-success">เพิ่มหมายเลขโทรศัพท์</a>
           </div>
           <div class="col-2 mt-4">
             <input type="search"  name="search_text" id="search_text" class="form-control" placeholder="ค้นหาเบอร์โทรศัพท์"/>

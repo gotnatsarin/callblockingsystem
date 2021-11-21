@@ -78,7 +78,7 @@
                   <div class="col-1">
                   </div>
                   <div class="col-12 text-end">
-                      <textarea id="text_area" class="md-textarea form-control mt-2" rows="2" cols="50"> venice </textarea>
+                      <textarea id="text_area" class="md-textarea form-control mt-2" rows="2" cols="50"></textarea>
                   </div> 
                 </div>
               </form>

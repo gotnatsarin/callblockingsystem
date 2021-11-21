@@ -1,5 +1,6 @@
-function delPhone(id) {
-
+var i = 0
+function delPhone() {
+  console.log(id)
     $.ajax({
         type: 'POST',
         url: 'query/delPhone.php',
@@ -25,7 +26,7 @@ function delPhone(id) {
                               </td>
                               <td>
                                 <a type="button" href="form_edit_phone.php?id=${element['id']}" class="btn btn-warning">แก้ไข</a> &nbsp;
-                                <button type="button" onClick="javascript: delPhone(${element['id']});" class="btn btn-danger">ลบ</button> 
+                                <button type="button" id="deletephone" value="${element['id']}" class="btn btn-danger">ลบ</button> 
                               </td>
                           </tr>`);
                         });
@@ -64,7 +65,7 @@ $(document).ready(function() {
                           </td>
                           <td>
                             <a type="button" href="form_edit_phone.php?id=${element['id']}" class="btn btn-warning">แก้ไข</a> &nbsp;
-                            <button type="button" onClick="javascript: delPhone(${element['id']});" class="btn btn-danger">ลบ</button> 
+                            <button type="button" id="deletephone" value="${element['id']}" class="btn btn-danger">ลบ</button> 
                           </td>
                       </tr>`);
                 });
@@ -78,18 +79,18 @@ $(document).ready(function() {
     });
 
     $('#confirmdelete').click(function() {
-        deleteThisRoom();
+      $('#mymodal').modal('hide')
+      delPhone();
     });
 
     $('#closemodal').click(function() {
         $('#mymodal').modal('hide')
     });
 
-    $(document).on("click", "#deleteroom", function() {
-        idroom = $(this).val();
+    $(document).on("click", "#deletephone", function() {
+        id = $(this).val();
+        console.log(id);
         $('#mymodal').modal('show')
     });
-
-
 
 });
