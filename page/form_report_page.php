@@ -41,26 +41,18 @@
                 <thead>
                   <tr>
                     <th class="col-2">ลำดับที่</th>
-                    <th class=" col-5 text-center">หมายเลขโทรศัพท์</th>
+                    <th class=" col-4 text-center">หมายเลขโทรศัพท์</th>
+                    <th class=" col-2 text-center">จำนวน/ครั้ง</th>
                     <th class="text-center">timeStamp</th>
                   </tr>
                 </thead>
                 <tbody id="tablebody">
-                  <tr class="text-center">
+                  <!-- <tr class="text-center">
                     <th scope="row" class="text-end">1</th>
                     <td>0987290448</td>
+                    <td>2</td>
                     <td>2021/11/22 22:05:49</td>
-                  </tr>
-                  <tr class="text-center">
-                    <th scope="row" class="text-end">2</th>
-                    <td>0987290448</td>
-                    <td>2021/11/22 22:05:49</td>
-                  </tr>
-                  <tr class="text-center">
-                    <th scope="row" class="text-end">3</th>
-                    <td>0987290448</td>
-                    <td>2021/11/22 22:05:49</td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>

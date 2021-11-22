@@ -14,7 +14,7 @@
 <body>
     <?php require('components/navbar.php'); ?>
     <br>
-    <div class="container">
+    <div cass="container">
         <div class="mt-2">
           <h5>แก้ไขบัญชีผู้ใช้</h5>
           <div>

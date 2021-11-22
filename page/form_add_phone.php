@@ -12,6 +12,23 @@
 <body>
     <?php require('components/navbar.php'); ?>
       <br/>
+      <div class="modal fade" id="addconfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">กรุณายืนยัน</h5>
+        </div>
+        <div class="modal-body">
+          ท่านต้องการเพิ่มเบอร์โทรศัพท์นี้ใช่หรือไม่ ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closemodal" class="btn btn-danger" >ยกเลิก</button>
+          <button type="button" id="confirmbutton" class="btn btn-success">ยืนยัน</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
       <div class="container">
         <div class="toast bg-danger text-white" data-bs-animation="true" id="add_failed" data-bs-delay="2000" data-bs-autohide="true">
           <div class="toast-header bg-danger text-white">
@@ -19,6 +36,15 @@
           </div>
           <div class="toast-body">
             หมายเลขโทรศัพท์นี้มีอยู่แล้ว กรุณาตรวจสอบอีกครั้ง
+          </div>
+        </div>
+
+        <div class="toast bg-danger text-white" data-bs-animation="true" id="full" data-bs-delay="2000" data-bs-autohide="true">
+          <div class="toast-header bg-danger text-white">
+            <strong class="me-auto"><i class="bi-gift-fill"></i>ผิดพลาด</strong>
+          </div>
+          <div class="toast-body">
+            หมายเลขโทรศัพท์เต็ม
           </div>
         </div>
 
@@ -58,7 +84,7 @@
                       </div> 
                       <div class="text-center">
                         <select id="status" name="status" class="form-select" aria-label="Default select example">
-                          <option selected>สถานะ</option>
+                          <!-- <option selected>สถานะ</option> -->
                           <option value="0">ระงับการใช้งาน</option>
                           <option value="1">ใช้งานได้</option>
                         </select>

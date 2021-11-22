@@ -49,8 +49,8 @@ $(document).ready(function() {
     });
 
     $('#save').click(function() {
-        username = $('#username').val();
-        password = $('#password').val();
+        // username = $('#username').val();
+        // password = $('#password').val();
         console.log(username + password)
         var jsonObj = { "username": username, "password": password };
         if ((username == "" || password == "")) {
@@ -63,6 +63,10 @@ $(document).ready(function() {
                 $('#password').addClass('border border-danger');
             }
         } else if (passok == 1) {
+            $('#addconfirm').modal('show')
+        }
+
+        function AddUser() {
             $.ajax({
                 type: 'POST',
                 url: 'query/adduser.php',
@@ -87,5 +91,20 @@ $(document).ready(function() {
                 }
             });
         }
+
+        $('#confirmbutton').click(function() {
+            $('#addconfirm').modal('hide')
+            AddUser();
+        });
+
+        $('#closemodal').click(function() {
+            $('#addconfirm').modal('hide')
+        });
+
+        // $(document).on("click", "#save", function() {
+        //     id = $(this).val();
+        //     console.log(id);
+        //     $('#addconfirm').modal('show')
+        // });
     });
 });

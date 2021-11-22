@@ -17,15 +17,15 @@ $(document).ready(function() {
         }
     });
 
-    $('#owner').keyup(function() {
-        if ($(this).val() == "") {
-            $('#owner').addClass('border border-danger');
-            $('#owner_error').html('กรุณาระบุชื่อเจ้าของเบอร์');
-        } else {
-            $('#owner').removeClass('border border-danger');
-            $('#owner_error').html('');
-        }
-    });
+    // $('#owner').keyup(function() {
+    //     if ($(this).val() == "") {
+    //         $('#owner').addClass('border border-danger');
+    //         $('#owner_error').html('กรุณาระบุชื่อเจ้าของเบอร์');
+    //     } else {
+    //         $('#owner').removeClass('border border-danger');
+    //         $('#owner_error').html('');
+    //     }
+    // });
 
     $("#status").change(function() {
         if ($(this).val() == "สถานะ") {
@@ -66,6 +66,10 @@ $(document).ready(function() {
                 $('#phone_error').html('กรุณากรอกแค่หมายเลข');
             }
         } else {
+            $('#addconfirm').modal('show')
+        }
+
+        function AddPhone() {
             $.ajax({
                 type: 'POST',
                 url: 'query/addphone.php',
@@ -78,11 +82,27 @@ $(document).ready(function() {
                             function() {
                                 window.location.href = 'main.php';
                             }, 2000)
+                    } else if (new_data.status == "full") {
+                        $("#full").toast("show");
                     } else {
                         $("#add_failed").toast("show");
                     }
                 }
             });
         }
+
+        $('#confirmbutton').click(function() {
+            $('#addconfirm').modal('hide');
+            AddPhone();
+        });
+
+        $('#closemodal').click(function() {
+            $('#addconfirm').modal('hide');
+        });
+
+        // $(document).on("click", "#save", function() {
+        //     id = $(this).val();
+        //     console.log(id);
+        // });
     });
 });

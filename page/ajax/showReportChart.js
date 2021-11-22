@@ -12,10 +12,19 @@ async function showChart() {
         },
         success: function(data) {
             new_data = JSON.parse(data).countBlockNumber
-            console.log(new_data.c)
-            new_data.forEach(element => {
-                xVal.push(element.phoneNumber)
+            console.log(data)
+            new_data.forEach((element, index) => {
+                $('#tablebody').append(`
+                <tr class="text-center">
+                    <th scope="row" class="text-end">${++index}</th>
+                    <td>${element.source}</td>
+                    <td>${element.c}</td>
+                    <td>${element.timestamp}</td>
+                  </tr>
+                `);
+                xVal.push(element.source)
                 yVal.push(parseInt(element.c))
+
                 if (element.c <= maxCount) {
 
                 } else {
@@ -23,14 +32,13 @@ async function showChart() {
                 }
             });
             maxCount = maxCount + (10 - (maxCount % 10))
-            console.log(xVal)
-            console.log(yVal)
-            console.log(maxCount)
+                // console.log(xVal)
+                // console.log(yVal)
+                // console.log(maxCount)
         }
     })
 
     var canvasElement = document.getElementById("reportChart");
-    console.log(xVal);
     var configure = {
         type: "bar",
         data: {

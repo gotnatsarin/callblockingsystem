@@ -17,6 +17,22 @@
     .strong-password{background-color: #12CC1A;border:#0FA015 1px solid;}
   </style>
     <?php require('components/navbar.php'); ?>
+    <div class="modal fade" id="addconfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">กรุณายืนยัน</h5>
+        </div>
+        <div class="modal-body">
+          ท่านต้องการเพิ่มผู้ใช้นี้ใช่หรือไม่ ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closemodal" class="btn btn-danger" >ยกเลิก</button>
+          <button type="button" id="confirmbutton" class="btn btn-success">ยืนยัน</button>
+        </div>
+      </div>
+    </div>
+  </div>
       <br/>
       <div class="container">
         <div class="toast bg-danger text-white" data-bs-animation="true" id="add_user_failed" data-bs-delay="2000" data-bs-autohide="true">
