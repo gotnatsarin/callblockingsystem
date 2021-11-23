@@ -49,50 +49,51 @@ function delPhone() {
 }
 
 function triggerStatus(ch_id) {
+    console.log(ch_id)
     $.ajax({
         type: 'POST',
-        url: 'query/listphone.php',
-        data: { 
-          id : ch_id
+        url: 'query/changeState.php',
+        data: {
+            id: ch_id
         },
         success: function(data) {
-          var checkID = JSON.parse(data);
-          if (checkID.status == "no ID has been found"){
-            $('#noID').toast("show");
-            setTimeout(
-              function() {
-                  window.location.href = 'main.php';
-              }, 2000)
-          } else {
-            $.ajax({
-              type: 'GET',
-              url: 'query/changeState.php',
-              success: function(data) {
-                  $(`tbody tr`).remove()
-                  try {
-                      var new_data = JSON.parse(data);
-                      new_data.forEach((element, index) => {
-                        //หาวิธีเปลี่ยนสีปุ่ม
-
-                        //   $('#table_phone').append(
-                        //       `<tr class="text-center" id="tr${element['id']}">
-                        //   <th scope="row">${++index}</th>
-                        //     <td>${element['phonenumber']}</td>
-                        //     <td>
-                        //       <button class="btn btn-success" value="${element['id']}" id="Toggle">สถานะ</button>
-                        //     </td>
-                        //     <td>
-                        //       <a type="button" href="form_edit_phone.php?id=${element['id']}" class="btn btn-warning">แก้ไข</a> &nbsp;
-                        //       <button type="button" id="deletephone" value="${element['id']}" class="btn btn-danger">ลบ</button> 
-                        //     </td>
-                        // </tr>`);
-                      });
-                  } catch {
-                      console.log("Empty");
-                  }
-              }
-            });
-          }   
+            var checkID = JSON.parse(data);
+            // console.log(checkID)
+            if (checkID.status == "no ID has been found") {
+                $('#noID').toast("show");
+                setTimeout(
+                    function() {
+                        window.location.href = 'main.php';
+                    }, 2000)
+            } else {
+                $.ajax({
+                    type: 'GET',
+                    url: 'query/listphone.php',
+                    success: function(data) {
+                        $(`tbody tr`).remove()
+                        try {
+                            var new_data = JSON.parse(data).PhoneDataObj;
+                            console.log(new_data);
+                            new_data.forEach((element, index) => {
+                                $('#table_phone').append(
+                                    `<tr class="text-center" id="tr${element['id']}">
+                            <th scope="row">${++index}</th>
+                              <td>${element['phonenumber']}</td>
+                              <td>
+                                <button class="btn btn-success active" value="${element['id']}" id="Toggle">สถานะ</button>
+                              </td>
+                              <td>
+                                <a type="button" href="form_edit_phone.php?id=${element['id']}" class="btn btn-warning">แก้ไข</a> &nbsp;
+                                <button type="button" id="deletephone" value="${element['id']}" class="btn btn-danger">ลบ</button> 
+                              </td>
+                          </tr>`);
+                            });
+                        } catch {
+                            console.log("Empty");
+                        }
+                    }
+                });
+            }
         }
     });
 }
@@ -145,7 +146,7 @@ $(document).ready(function() {
     });
 
     $(document).on("click", "#Toggle", function() {
-      triggerStatus($(this).val());
+        triggerStatus($(this).val());
     });
 
     $(document).on("click", "#deletephone", function() {

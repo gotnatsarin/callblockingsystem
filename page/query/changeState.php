@@ -1,7 +1,7 @@
 <?php
 require('connect.php');
 
-$id = $_POST['id'];
+isset( $_POST['id'] ) ? $id = $_POST['id'] : $id = "";
 
 $sql = "SELECT status FROM phone WHERE id = '$id'";
 $result = mysqli_query($conn, $sql);

@@ -49,9 +49,9 @@
         </div>
 
         <div class="toast bg-success text-white" data-bs-animation="true" id="add_success" data-bs-delay="2000" data-bs-autohide="true">
-            <div class="toast-header bg-success text-white">
-              <strong class="me-auto"><i class="bi-gift-fill"></i>สำเร็จ</strong>
-            </div>
+          <div class="toast-header bg-success text-white">
+            <strong class="me-auto"><i class="bi-gift-fill"></i>สำเร็จ</strong>
+          </div>
           <div class="toast-body">
             เพิ่มเบอร์โทรศัพท์เรียบร้อย
           </div>

@@ -66,8 +66,47 @@ $(document).ready(function() {
             }
         } else {
             $.ajax({
+                type: 'POST',
+                url: 'query/writeFile.php',
+                data: {
+                    inbound: inbound,
+                    outbound: outbound,
+                    portIn: port1,
+                    portOut: port2,
+                },
+                success: function(data) {
+                    console.log(data)
+                }
 
             })
         }
+    });
+    $('#showstatus').click(function() {
+        var valueBtn = $(this).val();
+        console.log(valueBtn)
+        if (valueBtn == 0) {
+            $.ajax({
+                type: 'GET',
+                url: 'query/showStatusTrunk.php',
+                data: {
+
+                },
+                success: function(data) {
+                    var jsonData = JSON.parse(data)
+
+                    $.each(jsonData, function(key, value) {
+                        $('#show').append(`
+                      <lable>${value}</lable> <br>
+                      `)
+                    });
+
+                }
+            })
+            $('#showstatus').val(1)
+        } else {
+            $('#showstatus').val(0)
+            $('#show').children().remove()
+        }
+
     });
 });

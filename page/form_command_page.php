@@ -101,16 +101,13 @@
                   </div>
                   <div class="col-12 text-end">
                     <div class="text-center">
-                      <button class="btn btn-primary " type="button" onclick="focusScrollMethod()" data-mdb-toggle="collapse" data-mdb-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+                      <button class="btn btn-primary " id="showstatus" type="button" value="0">
                        แสดง
+
+                       <!-- onclick="focusScrollMethod()" -->
                       </button>
-                      <div class="collapse multi-collapse mt-3 " id="multiCollapseExample2">
-                          <lable>test1 : 6001 1</lable> <br>
-                          <lable>test1 : 6001 1</lable> <br>
-                          <lable>test1 : 6001 1</lable> <br>
-                          <lable>test1 : 6001 1</lable> <br>
-                          <lable>test1 : 6001 1</lable> <br>
-                          <lable>test1 : 6001 1</lable> <br>
+                      <div class="mt-3 text-end" id="show">
+                          
                       </div>
                     </div>
                   </div> 
