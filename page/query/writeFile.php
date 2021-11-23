@@ -4,9 +4,7 @@ $outbound =$_POST['outbound'];
 $portIn = $_POST['portIn'];
 $portOut = $_POST['portOut'];
 
-echo $inbound."<br>".$outbound."<br>".$portIn."<br>".$portOut."<br>";
+//printf "hello\nddd" > /etc/asterisk/pjsip_trunk.conf
 
-//$file = fopen("test.txt","w+");
-//echo fwrite($file,"H");
-//fclose($file);
+exec("sudo printf 'hello2' > /etc/asterisk/pjsip_trunk.conf",$output);
 ?>
