@@ -150,6 +150,11 @@ $(document).ready(function() {
 
     $(document).on("click", "#Toggle", function() {
         triggerStatus($(this).val());
+        $("#success").toast("show");
+        setTimeout(
+            function() {
+                $("#success").toast("hide");
+            }, 1500)
     });
 
     $(document).on("click", "#deletephone", function() {

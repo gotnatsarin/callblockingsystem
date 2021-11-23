@@ -76,6 +76,25 @@
             ไม่พบเบอร์โทรศัพท์นี้ กรุณาลองใหม่อีกครั้ง
             </div>
         </div>
+
+        <!-- <div class="toast bg-success text-white" data-bs-animation="true" id="success" data-bs-delay="2000" data-bs-autohide="true">
+            <div class="toast-header bg-success text-white">
+              <strong class="me-auto"><i class="bi-gift-fill"></i>สำเร็จ</strong>
+            </div>
+            <div class="toast-body">
+            เปลี่ยนสถานะเรียบร้อยแล้ว
+            </div>
+        </div> -->
+
+        <div class="toast bg-success text-white" data-bs-animation="true" id="success" data-bs-autohide="true" data-bs-delay="1000">
+            <div class="toast-header bg-success text-white">
+              <strong class="me-auto"><i class="bi-gift-fill"></i>สำเร็จ</strong>
+            </div>
+          <div class="toast-body">
+            เปลี่ยนสถานะเรียบร้อยแล้ว
+          </div>
+        </div>
+
 </body>
 
 <script src="ajax/list_phone.js"></script>

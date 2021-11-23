@@ -6,9 +6,5 @@ $portOut = $_POST['portOut'];
 
 //printf "hello\nddd" > /etc/asterisk/pjsip_trunk.conf
 
-exec("printf '$inpound\n
-$outbound\n
-$portIn\n
-$portOut\n
-' > /etc/asterisk/pjsip_trunk.conf");
+exec("sudo printf 'hello2' > /etc/asterisk/pjsip_trunk.conf",$output);
 ?>
