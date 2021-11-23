@@ -77,15 +77,18 @@ function triggerStatus(ch_id) {
                             new_data.forEach((element, index) => {
                                 $('#table_phone').append(
                                     `<tr class="text-center" id="tr${element['id']}">
-                            <th scope="row">${++index}</th>
-                              <td>${element['phonenumber']}</td>
-                              <td>
-                                <button class="btn btn-success active" value="${element['id']}" id="Toggle">สถานะ</button>
-                              </td>
-                              <td>
-                                <a type="button" href="form_edit_phone.php?id=${element['id']}" class="btn btn-warning">แก้ไข</a> &nbsp;
-                                <button type="button" id="deletephone" value="${element['id']}" class="btn btn-danger">ลบ</button> 
-                              </td>
+                                      <th scope="row">${++index}</th>
+                                      <td>${element['phonenumber']}</td>
+                                      <td> 
+                                      <button class="btn btn-success active" value="${element['id']}" id="Toggle">ระงับการใช้งาน</button>
+                                      </td>
+                                      <td> 
+                                      <button class="btn btn-success active" value="${element['id']}" id="Toggle">ใช้งานได้</button>
+                                      </td>
+                                      <td>
+                                      <a type="button" href="form_edit_phone.php?id=${element['id']}" class="btn btn-warning">แก้ไข</a> &nbsp;
+                                      <button type="button" id="deletephone" value="${element['id']}" class="btn btn-danger">ลบ</button> 
+                                  </td>
                           </tr>`);
                             });
                         } catch {
