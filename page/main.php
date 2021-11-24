@@ -47,25 +47,28 @@
                 <thead>
                   <tr>
                     <th class="col-1">ลำดับที่</th>
-                    <th class=" col-4 text-center">หมายเลขโทรศัพท์</th>
-                    <th class=" col-4 text-center">สถานะ</th>
+                    <th class=" col-2 text-center">หมายเลขโทรศัพท์</th>
+                    <th class=" col-3 text-center">ชื่อเจ้าของเบอร์โทรศัพท์</th>
+                    <th class=" col-3 text-center">สถานะ</th>
                     <th class="text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody id="table_phone">
-                  <!-- <tr class="text-center">
-                    <th scope="row">1</th>
-                    <td>0987290448</td>
-                    <td>
-                      <button class="btn btn-success" id="Toggle">สถานะ</button>
-                    </td>
-                    <td>
-                      <a type="button" id="#" href="form_edit_phone.php" class="btn btn-warning">แก้ไข</a> &nbsp;
-                      <button type="button" id="#" class="btn btn-danger">ลบ</button> 
-                    </td>
-                  </tr> -->
                 </tbody>
               </table>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
           </div>
       </div>
         <div class="toast bg-danger text-white" data-bs-animation="true" id="noID" data-bs-delay="2000" data-bs-autohide="true">
@@ -77,15 +80,14 @@
             </div>
         </div>
 
-        <!-- <div class="toast bg-success text-white" data-bs-animation="true" id="success" data-bs-delay="2000" data-bs-autohide="true">
-            <div class="toast-header bg-success text-white">
-              <strong class="me-auto"><i class="bi-gift-fill"></i>สำเร็จ</strong>
+        <div class="toast bg-danger text-white" data-bs-animation="true" id="notfound" data-bs-delay="2000" data-bs-autohide="true">
+            <div class="toast-header bg-danger text-white">
+              <strong class="me-auto"><i class="bi-gift-fill"></i>ผิดพลาด</strong>
             </div>
             <div class="toast-body">
-            เปลี่ยนสถานะเรียบร้อยแล้ว
+            ไม่พบเบอร์โทรศัพท์นี้ในระบบ
             </div>
-        </div> -->
-
+        </div>
         <div class="toast bg-success text-white" data-bs-animation="true" id="success" data-bs-autohide="true" data-bs-delay="1000">
             <div class="toast-header bg-success text-white">
               <strong class="me-auto"><i class="bi-gift-fill"></i>สำเร็จ</strong>
@@ -94,7 +96,6 @@
             เปลี่ยนสถานะเรียบร้อยแล้ว
           </div>
         </div>
-
 </body>
 
 <script src="ajax/list_phone.js"></script>

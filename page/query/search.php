@@ -1,7 +1,6 @@
 <?php
 require_once('connect.php');
 
-
 $query = "SELECT * FROM phone WHERE phonenumber LIKE '%".$_POST["search"]."%'";
 
 $query_exe = mysqli_query($conn,$query);

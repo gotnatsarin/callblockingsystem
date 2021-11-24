@@ -17,15 +17,15 @@ $(document).ready(function() {
         }
     });
 
-    // $('#owner').keyup(function() {
-    //     if ($(this).val() == "") {
-    //         $('#owner').addClass('border border-danger');
-    //         $('#owner_error').html('กรุณาระบุชื่อเจ้าของเบอร์');
-    //     } else {
-    //         $('#owner').removeClass('border border-danger');
-    //         $('#owner_error').html('');
-    //     }
-    // });
+    $('#owner').keyup(function() {
+        if ($(this).val() == "") {
+            $('#owner').addClass('border border-danger');
+            $('#owner_error').html('กรุณาระบุชื่อเจ้าของเบอร์');
+        } else {
+            $('#owner').removeClass('border border-danger');
+            $('#owner_error').html('');
+        }
+    });
 
     $("#status").change(function() {
         if ($(this).val() == "สถานะ") {
@@ -43,28 +43,27 @@ $(document).ready(function() {
         phonenumber = $('#phonenum').val();
         var jsonObj = { "phonenumber": phonenumber, "owner": owner, "status": status };
 
-        if (phonenumber == "" || status == "สถานะ") {
+        if (phonenumber == "" || owner == "" || status == "สถานะ") {
             if (phonenumber == "") {
                 $('#phonenum').addClass('border border-danger');
                 $('#add_phone_error').html(message);
             }
-            // if (owner == "") {
-            //     $('#owner').addClass('border border-danger');
-            //     $('#owner_error').html('กรุณาระบุชื่อเจ้าของเบอร์โทรศัพท์');
-            // }
+            if (owner == "") {
+                $('#owner').addClass('border border-danger');
+                $('#owner_error').html('กรุณาระบุชื่อเจ้าของเบอร์โทรศัพท์');
+            }
             if (status == "สถานะ") {
                 $('#status').addClass('border border-danger');
                 $('#status_error').html('กรุณาเลือกสถานะที่ต้องการ');
             }
-        } else if (phonenumber.length != 10 || !number.test(phonenumber)) {
-            if (phonenumber.length != 10) {
+        } else if (!number.test(phonenumber)) {
+            // if (phonenumber.length != 10) {
+            //     $('#phonenum').addClass('border border-danger');
+            //     $('#phone_error').html('กรุณาใส่หมายเลขให้ครบ');
+
+            if (!number.test(phonenumber))
                 $('#phonenum').addClass('border border-danger');
-                $('#phone_error').html('กรุณาใส่หมายเลขให้ครบ');
-            }
-            if (!number.test(phonenumber)) {
-                $('#phonenum').addClass('border border-danger');
-                $('#phone_error').html('กรุณากรอกแค่หมายเลข');
-            }
+            $('#phone_error').html('กรุณากรอกแค่หมายเลข');
         } else {
             $('#addconfirm').modal('show')
         }

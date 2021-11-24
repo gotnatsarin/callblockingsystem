@@ -71,7 +71,7 @@
                   <div class="card-body">
                     <div class="card-text text-center">
                       <form method="post" enctype="multipart/form-data" id="myform">
-                        <input type="text" class="form-control" name="Phone" id="phonenum" placeholder="เบอร์โทรศัพท์" aria-label="name" aria-describedby="email-addon" maxlength="10">
+                        <input type="text" class="form-control" name="Phone" id="phonenum" placeholder="เบอร์โทรศัพท์" aria-label="name" aria-describedby="email-addon" maxlength="20">
                       </div>
                       <div class="text-center" >
                         <label style="color: red;font-size: 13px;" id="add_phone_error"></label>
@@ -85,8 +85,8 @@
                       <div class="text-center">
                         <select id="status" name="status" class="form-select" aria-label="Default select example">
                           <!-- <option selected>สถานะ</option> -->
-                          <option value="0">ระงับการใช้งาน</option>
-                          <option value="1">ใช้งานได้</option>
+                          <option value="0">บล็อค</option>
+                          <option value="1">ไม่บล็อค</option>
                         </select>
                       </div>
                       <div class="text-center" >

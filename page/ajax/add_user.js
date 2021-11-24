@@ -1,4 +1,6 @@
 var passok
+var jsonObj = {};
+
 
 function checkPasswordStrength() {
     var number = /([0-9])/;
@@ -26,9 +28,6 @@ function checkPasswordStrength() {
 }
 
 $(document).ready(function() {
-    var username
-    var password
-
     $('#username').keyup(function() {
         if ($(this).val() == "") {
             $('#username').addClass('border border-danger');
@@ -49,10 +48,9 @@ $(document).ready(function() {
     });
 
     $('#save').click(function() {
-        // username = $('#username').val();
-        // password = $('#password').val();
-        console.log(username + password)
-        var jsonObj = { "username": username, "password": password };
+        var username = $('#username').val();
+        var password = $('#password').val();
+        jsonObj = { "username": username, "password": password };
         if ((username == "" || password == "")) {
             if (username == "") {
                 $('#username').addClass('border border-danger');
@@ -100,11 +98,5 @@ $(document).ready(function() {
         $('#closemodal').click(function() {
             $('#addconfirm').modal('hide')
         });
-
-        // $(document).on("click", "#save", function() {
-        //     id = $(this).val();
-        //     console.log(id);
-        //     $('#addconfirm').modal('show')
-        // });
     });
 });

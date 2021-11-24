@@ -1,7 +1,7 @@
 <nav class="navbar" style="background-color:grey;">
   <div class="container-fluid">
     <a class="navbar-brand" href="../page/main.php">
-      <i class="fas fa-phone-alt"></i> &nbsp;&nbsp;
+      <span style="color:white"><i class="fas fa-phone-alt "></i></span> &nbsp;&nbsp;
       <small class=" text-light">Call Blocking System</small>
 </a>
     <h5 class=" text-light">ยินดีต้อนรับคุณ : <?php echo $s_login_username; ?></h5>
@@ -19,7 +19,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
       >
-      <i class="fas fa-phone fa-4x"></i>
+      <i class="fas fa-align-justify"></i>
     </button>
     <div class="text-start">
       <div class="collapse navbar-collapse" id="navbarLeftAlignExample">

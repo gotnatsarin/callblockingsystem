@@ -11,8 +11,7 @@ async function showChart() {
 
         },
         success: function(data) {
-            new_data = JSON.parse(data).countBlockNumber
-            console.log(data)
+            new_data = JSON.parse(data).countBlockNumber;
             new_data.forEach((element, index) => {
                 $('#tablebody').append(`
                 <tr class="text-center">

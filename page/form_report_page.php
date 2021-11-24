@@ -20,15 +20,15 @@
         </div>
         <br>
         <div class="row mb-4">
-          <div class="col-3">
+          <div class="col-2">
           </div>
-          <div class="card border col-6 mb-4">
+          <div class="card border col-8 mb-4">
             <div class="card-header text-center">
               รายงานเบอร์โดนบล็อค
             </div>
               <div class="card-body">
                 <div class="card-text">
-                  <canvas id="reportChart" style="width:100%;max-width:600px;"></canvas>
+                  <canvas id="reportChart" style="width:100%;max-width:1000px;"></canvas>
                 </div>
               </div>
             </div>
