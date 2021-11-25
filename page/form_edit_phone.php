@@ -42,8 +42,8 @@
                       <div class="text-center">
                         <select id="status" name="status" class="form-select" aria-label="Default select example">
                           <!-- <option selected>สถานะ</option> -->
-                          <option value="0">ระงับการใช้งาน</option>
-                          <option value="1">ใช้งานได้</option>
+                          <option value="0">บล็อค</option>
+                          <option value="1">ไม่บล็อค</option>
                         </select>
                       </div>
                       </br>

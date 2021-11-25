@@ -52,11 +52,11 @@ $(document).ready(function() {
                 $('#status_error').html('กรุณาระบุสถานะ');
                 $('#status').addClass('border border-danger');
             }
-        } else if (phonenumber.length != 10 || !number.test(phonenumber)) {
-            if (phonenumber.length != 10) {
-                $('#phonenum').addClass('border border-danger');
-                $('#phone_error').html('กรุณาใส่หมายเลขให้ครบ');
-            }
+        } else if (!number.test(phonenumber)) {
+            // if (phonenumber.length != 10) {
+            //     $('#phonenum').addClass('border border-danger');
+            //     $('#phone_error').html('กรุณาใส่หมายเลขให้ครบ');
+            // }
             if (!number.test(phonenumber)) {
                 $('#phonenum').addClass('border border-danger');
                 $('#phone_error').html('กรุณากรอกแค่หมายเลข');
