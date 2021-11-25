@@ -14,6 +14,23 @@
 <body>
     <?php require('components/navbar.php'); ?>
     <br>
+    <div class="modal fade" id="writeconfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">กรุณายืนยัน</h5>
+        </div>
+        <div class="modal-body">
+          ท่านต้องการที่จะบันทึกหรือไม่ ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closemodal" class="btn btn-danger" >ยกเลิก</button>
+          <button type="button" id="confirmbutton" class="btn btn-success">ยืนยัน</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <div class="container">
         <div class="toast bg-danger text-white" data-bs-animation="true" id="command_failed" data-bs-delay="2000" data-bs-autohide="true">
           <div class="toast-header bg-danger text-white">
@@ -114,7 +131,25 @@
                 </div>
               </form> 
           </div> 
-        </div>     
+        </div>
+        <div class="toast bg-success text-white" data-bs-animation="true" id="writesuccess" data-bs-autohide="true">
+            <div class="toast-header bg-success text-white">
+              <strong class="me-auto"><i class="bi-gift-fill"></i>สำเร็จ</strong>
+            </div>
+          <div class="toast-body">
+            บันทึกสำเร็จ
+          </div>
+        </div>
+        
+        <div class="toast bg-danger text-white" data-bs-animation="true" id="writefailed" data-bs-delay="2000" data-bs-autohide="true">
+            <div class="toast-header bg-danger text-white">
+              <strong class="me-auto"><i class="bi-gift-fill"></i>ผิดพลาด</strong>
+            </div>
+            <div class="toast-body">
+              บันทึกไม่สำเร็จ กรุณาลองใหม่อีกครั้ง
+            </div>
+        </div>
+
 </body>
 
 <script>

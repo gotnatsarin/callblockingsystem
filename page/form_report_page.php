@@ -19,6 +19,17 @@
           <h5>รายงานเบอร์ที่โดนบล็อค 10 อับดับ</h5>
         </div>
         <br>
+        <div class="row">
+          <div class="col-4">
+          </div>
+          <div class="col-4 mt-2">
+            <div class="text-end mb-4">
+              <lable>เดือน</lable>
+              <input type="month" class="form-control mt-2" name="date" id="date" value="<?php echo date('Y-m'); ?>" aria-label="name" aria-describedby="email-addon" maxlength="255">
+            </div>
+          </div>
+        </div>
+        <br>
         <div class="row mb-4">
           <div class="col-2">
           </div>
@@ -47,12 +58,6 @@
                   </tr>
                 </thead>
                 <tbody id="tablebody">
-                  <!-- <tr class="text-center">
-                    <th scope="row" class="text-end">1</th>
-                    <td>0987290448</td>
-                    <td>2</td>
-                    <td>2021/11/22 22:05:49</td>
-                  </tr> -->
                 </tbody>
               </table>
             </div>

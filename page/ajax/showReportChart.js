@@ -3,14 +3,15 @@ var yVal = []
 var maxCount = 0
 
 
-async function showChart() {
+async function showChart(date) {
     await $.ajax({
         type: 'GET',
         url: 'query/setPhoneNumberBlockToChart.php',
         data: {
-
+            selectedDate: date,
         },
         success: function(data) {
+
             new_data = JSON.parse(data).countBlockNumber;
             new_data.forEach((element, index) => {
                 $('#tablebody').append(`
@@ -31,9 +32,6 @@ async function showChart() {
                 }
             });
             maxCount = maxCount + (10 - (maxCount % 10))
-                // console.log(xVal)
-                // console.log(yVal)
-                // console.log(maxCount)
         }
     })
 
@@ -65,7 +63,15 @@ async function showChart() {
             }
         },
     };
-
     var reportChart = new Chart(canvasElement, configure);
 }
-showChart();
+
+$(document).ready(function() {
+
+    $('#date').change(function() {
+        let date = $('#date').val();
+        console.log(date);
+        showChart(date);
+    });
+    showChart($('#date').val());
+});

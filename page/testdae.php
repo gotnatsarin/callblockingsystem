@@ -57,9 +57,8 @@
                 </tbody>
               </table>
 <div id="pagination">
-
+  
 </div>
-
           </div>
       </div>
         <div class="toast bg-danger text-white" data-bs-animation="true" id="noID" data-bs-delay="2000" data-bs-autohide="true">

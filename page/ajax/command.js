@@ -42,10 +42,10 @@ $(document).ready(function() {
     });
 
     $('#save').click(function() {
-        var inbound = $('#inbound_trunk').val();
-        var outbound = $('#outbound_trunk').val();
-        var port1 = $('#Port1').val();
-        var port2 = $('#Port2').val();
+        let inbound = $('#inbound_trunk').val();
+        let outbound = $('#outbound_trunk').val();
+        let port1 = $('#Port1').val();
+        let port2 = $('#Port2').val();
 
         if (inbound == "" || outbound == "" || port1 == "" || port2 == "") {
             if (inbound == "") {
@@ -65,22 +65,43 @@ $(document).ready(function() {
                 $('#port_outbound_error').html('กรุณาระบุข้อมูล');
             }
         } else {
-            $.ajax({
-                type: 'POST',
-                url: 'query/writeFile.php',
-                data: {
-                    inbound: inbound,
-                    outbound: outbound,
-                    portIn: port1,
-                    portOut: port2,
-                },
-                success: function(data) {
-                    console.log(data)
-                }
-
-            })
+            $('#writeconfirm').modal('show')
         }
     });
+
+    function Writefile() {
+        let inbound = $('#inbound_trunk').val();
+        let outbound = $('#outbound_trunk').val();
+        let port1 = $('#Port1').val();
+        let port2 = $('#Port2').val();
+        $.ajax({
+            type: 'POST',
+            url: 'query/writeFile.php',
+            data: {
+                inbound: inbound,
+                outbound: outbound,
+                portIn: port1,
+                portOut: port2,
+            },
+            success: function(data) {
+                console.log(data)
+                if (parseInt(data) == 0) {
+                    $('#writesuccess').toast('show');
+                    setTimeout(
+                        function() {
+                            $('#writesuccess').toast('hide');
+                        }, 2000)
+                } else {
+                    $('#writefailed').toast('show');
+                    setTimeout(
+                        function() {
+                            $('#writesuccess').toast('hide');
+                        }, 2000)
+                }
+            }
+        });
+    }
+
     $('#showstatus').click(function() {
         var valueBtn = $(this).val();
         console.log(valueBtn)
@@ -99,7 +120,6 @@ $(document).ready(function() {
                       <lable>${value}</lable> <br>
                       `)
                     });
-
                 }
             })
             $('#showstatus').val(1)
@@ -108,5 +128,13 @@ $(document).ready(function() {
             $('#show').children().remove()
         }
 
+        $('#confirmbutton').click(function() {
+            $('#writeconfirm').modal('hide')
+            Writefile();
+        });
+
+        $('#closemodal').click(function() {
+            $('#writeconfirm').modal('hide')
+        });
     });
-});
+}); {}

@@ -1,8 +1,8 @@
-// ห้ามลบ
 var id = 0;
 var page = 1;
 var search;
 var pagination;
+
 
 function delPhone() {
     $.ajax({
@@ -54,12 +54,7 @@ function delPhone() {
                             pagination += '<a class="page-link">Previous</a>'
                             pagination += '</li>'
                             for (let i = 0; i <= total_page - 1; i++) {
-                                pagination += '<li class="page-item '
-                                if (page == i + 1) {
-                                    pagination += 'active'
-                                }
-                                pagination += '" id="page" value="' + (parseInt(i) + 1) + '"><a class="page-link" href="#">' + (parseInt(i) + 1) + '</a></li>'
-
+                                pagination += '<li class="page-item" id="page" value="' + (parseInt(i) + 1) + '"><a class="page-link" href="#">' + (parseInt(i) + 1) + '</a></li>'
                             }
                             pagination += '<li class="page-item'
                             if (page == total_page) {
@@ -67,7 +62,7 @@ function delPhone() {
                             }
 
                             pagination += '">'
-                            pagination += '<a class="page-link">Next</a>'
+                            pagination += '<a class="page-link" href="#">Next</a>'
                             pagination += '</li>'
                             pagination += '</ul>'
                             pagination += '</nav>'
@@ -82,22 +77,23 @@ function delPhone() {
     });
 }
 
-function changePage(pages) {
-    console.log(page);
+function changePage(page) {
     search = $('#searchphone').val()
-    console.log("page=" + pages)
+
+    console.log("page=" + page)
     $.ajax({
         type: 'GET',
         url: 'query/queryPagination.php',
         data: {
-            page: pages,
+            page: page,
             search: search
         },
         success: function(data) {
-            console.log(data)
+            //console.log(data)
             $(`tbody tr`).remove()
             $(`#pagination nav`).remove()
             try {
+
                 var new_data = JSON.parse(data).PhoneDataObj;
                 var total_page = JSON.parse(data).totalPage;
                 var start = JSON.parse(data).start;
@@ -124,25 +120,22 @@ function changePage(pages) {
                 pagination += '<ul class="pagination justify-content-center">'
                 pagination += '<li class="page-item'
                 if (page == 1) {
-                    pagination += ' disabled"'
-                } else {
-                    pagination += '" id="page" value="' + parseInt(page - 1) + '"'
+                    pagination += ' disabled'
                 }
-                pagination += ' >'
-                pagination += '<a class="page-link" href="#">Previous</a>'
+                pagination += '">'
+                pagination += '<a class="page-link">Previous</a>'
                 pagination += '</li>'
                 for (let i = 0; i <= total_page - 1; i++) {
-                    pagination += '<li class="page-item '
-                    if (page == i + 1) {
-                        pagination += 'active'
+                    console.log(element['page'])
+                    if (element['page'] == page) {
+                        pagination += '<li class="page-item active'
                     }
                     pagination += '" id="page" value="' + (parseInt(i) + 1) + '"><a class="page-link" href="#">' + (parseInt(i) + 1) + '</a></li>'
                 }
-
-                pagination += '<li class="page-item'
                 if (page == total_page) {
                     pagination += ' disabled'
                 }
+
                 pagination += '">'
                 pagination += '<a class="page-link" href="#">Next</a>'
                 pagination += '</li>'
@@ -204,22 +197,18 @@ function triggerStatus(ch_id) {
                             if (page == 1) {
                                 pagination += ' disabled'
                             }
-                            pagination += '" id="page" value="' + parseInt(page - 1) + '">'
-                            pagination += '<a class="page-link" href="#">Previous</a>'
+                            pagination += '">'
+                            pagination += '<a class="page-link">Previous</a>'
                             pagination += '</li>'
                             for (let i = 0; i <= total_page - 1; i++) {
-                                pagination += '<li class="page-item '
-                                if (page == i + 1) {
-                                    pagination += 'active'
-                                }
-                                pagination += '" id="page" value="' + (parseInt(i) + 1) + '"><a class="page-link" href="#">' + (parseInt(i) + 1) + '</a></li>'
-
+                                pagination += '<li class="page-item" id="page" value="' + (parseInt(i) + 1) + '"><a class="page-link" href="#">' + (parseInt(i) + 1) + '</a></li>'
                             }
                             pagination += '<li class="page-item'
                             if (page == total_page) {
                                 pagination += ' disabled'
                             }
-                            pagination += '" id="page" value="' + parseInt(page + 1) + '">'
+
+                            pagination += '">'
                             pagination += '<a class="page-link" href="#">Next</a>'
                             pagination += '</li>'
                             pagination += '</ul>'
@@ -237,6 +226,7 @@ function triggerStatus(ch_id) {
 
 $(document).ready(function() {
     $('#main').addClass('active');
+
     $("#Toggle").toggle(function() {
         $(this).css("background-color", "green");
     }, function() {
@@ -246,13 +236,12 @@ $(document).ready(function() {
         type: 'GET',
         url: 'query/queryPagination.php',
         success: function(data) {
-            console.log(data)
             $(`tbody tr`).remove()
             $(`#pagination nav`).remove()
             try {
                 var new_data = JSON.parse(data).PhoneDataObj;
                 var total_page = JSON.parse(data).totalPage;
-                page = JSON.parse(data).page;
+                var page
                 var html = '';
                 pagination = '';
                 new_data.forEach((element, index) => {
@@ -274,22 +263,23 @@ $(document).ready(function() {
 
                 pagination += '<nav aria-label="Page navigation example">'
                 pagination += '<ul class="pagination justify-content-center">'
-                pagination += '<li class="page-item disabled">'
-                pagination += '<a class="page-link" href="#">Previous</a>'
+                pagination += '<li class="page-item'
+                if (page == 1) {
+                    pagination += ' disabled'
+                }
+                pagination += '">'
+                pagination += '<a class="page-link">Previous</a>'
                 pagination += '</li>'
                 for (let i = 0; i <= total_page - 1; i++) {
-                    pagination += '<li class="page-item '
-                    if (page == i + 1) {
-                        pagination += 'active'
-                    }
-                    pagination += '" id="page" value="' + (parseInt(i) + 1) + '"><a class="page-link" href="#">' + (parseInt(i) + 1) + '</a></li>'
-
+                    pagination += '<li class="page-item" id="page" value="' + (parseInt(i) + 1) + '"><a class="page-link" href="#">' + (parseInt(i) + 1) + '</a></li>'
                 }
+
                 pagination += '<li class="page-item'
                 if (page == total_page) {
                     pagination += ' disabled'
                 }
-                pagination += '" id="page" value="' + parseInt(page + 1) + '">'
+
+                pagination += '">'
                 pagination += '<a class="page-link" href="#">Next</a>'
                 pagination += '</li>'
                 pagination += '</ul>'
@@ -331,12 +321,12 @@ $(document).ready(function() {
 
     $(document).on("click", "#page", function() {
         page = $(this).val();
-        console.log(page);
+        console.log(page)
         changePage(page);
+
     });
 
     $('#searchphone').keyup(function() {
-        page = 1
         var txt = $(this).val();
         if (txt != '') {
             $.ajax({
@@ -388,22 +378,13 @@ $(document).ready(function() {
 
                         pagination += '<nav aria-label="Page navigation example">'
                         pagination += '<ul class="pagination justify-content-center">'
-                        pagination += '<li class="page-item disabled" id="page">'
-                        pagination += '<a class="page-link" href="#">Previous</a>'
+                        pagination += '<li class="page-item disabled">'
+                        pagination += '<a class="page-link">Previous</a>'
                         pagination += '</li>'
                         for (let i = 0; i <= total_page - 1; i++) {
-                            pagination += '<li class="page-item '
-                            if (page == i + 1) {
-                                pagination += 'active'
-                            }
-                            pagination += '" id="page" value="' + (parseInt(i) + 1) + '"><a class="page-link" href="#">' + (parseInt(i) + 1) + '</a></li>'
-
+                            pagination += '<li class="page-item" id="page" value="' + (parseInt(i) + 1) + '"><a class="page-link" href="#">' + (parseInt(i) + 1) + '</a></li>'
                         }
-                        pagination += '<li class="page-item'
-                        if (page == total_page) {
-                            pagination += ' disabled'
-                        }
-                        pagination += '" id="page" value="' + parseInt(page + 1) + '">'
+                        pagination += '<li class="page-item">'
                         pagination += '<a class="page-link" href="#">Next</a>'
                         pagination += '</li>'
                         pagination += '</ul>'
@@ -443,21 +424,12 @@ $(document).ready(function() {
                         pagination += '<nav aria-label="Page navigation example">'
                         pagination += '<ul class="pagination justify-content-center">'
                         pagination += '<li class="page-item disabled">'
-                        pagination += '<a class="page-link" href="#">Previous</a>'
+                        pagination += '<a class="page-link">Previous</a>'
                         pagination += '</li>'
                         for (let i = 0; i <= total_page - 1; i++) {
-                            pagination += '<li class="page-item '
-                            if (page == i + 1) {
-                                pagination += 'active'
-                            }
-                            pagination += '" id="page" value="' + (parseInt(i) + 1) + '"><a class="page-link" href="#">' + (parseInt(i) + 1) + '</a></li>'
-
+                            pagination += '<li class="page-item" id="page" value="' + (parseInt(i) + 1) + '"><a class="page-link" href="#">' + (parseInt(i) + 1) + '</a></li>'
                         }
-                        pagination += '<li class="page-item'
-                        if (page == total_page) {
-                            pagination += ' disabled'
-                        }
-                        pagination += '" id="page" value="' + parseInt(page + 1) + '">'
+                        pagination += '<li class="page-item">'
                         pagination += '<a class="page-link" href="#">Next</a>'
                         pagination += '</li>'
                         pagination += '</ul>'
