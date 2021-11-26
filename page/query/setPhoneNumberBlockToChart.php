@@ -3,7 +3,6 @@ date_default_timezone_set('Asia/Bangkok');
 
 $date =$_GET['selectedDate'];
 
-
 require_once('connect.php');
 $query = "SELECT source, max(timestamp) timestamp,  count(source) c FROM log_block WHERE timestamp like  '$date%' GROUP BY source  ORDER BY c DESC LIMIT 10";
 $result = mysqli_query($conn,$query);

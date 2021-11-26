@@ -1,8 +1,7 @@
 var xVal = []
 var yVal = []
 var maxCount = 0
-
-
+date = $('#date').val();
 async function showChart(date) {
     await $.ajax({
         type: 'GET',
@@ -11,10 +10,11 @@ async function showChart(date) {
             selectedDate: date,
         },
         success: function(data) {
-
+            console.log(data)
             new_data = JSON.parse(data).countBlockNumber;
-            new_data.forEach((element, index) => {
-                $('#tablebody').append(`
+            try {
+                new_data.forEach((element, index) => {
+                    $('#tablebody').append(`
                 <tr class="text-center">
                     <th scope="row" class="text-end">${++index}</th>
                     <td>${element.source}</td>
@@ -22,15 +22,19 @@ async function showChart(date) {
                     <td>${element.timestamp}</td>
                   </tr>
                 `);
-                xVal.push(element.source)
-                yVal.push(parseInt(element.c))
+                    xVal.push(element.source)
+                    yVal.push(parseInt(element.c))
 
-                if (element.c <= maxCount) {
+                    if (element.c <= maxCount) {
 
-                } else {
-                    maxCount = parseInt(element.c)
-                }
-            });
+                    } else {
+                        maxCount = parseInt(element.c)
+                    }
+                });
+            } catch {
+                $("#chart canvas").remove()
+            }
+
             maxCount = maxCount + (10 - (maxCount % 10))
         }
     })
@@ -42,7 +46,7 @@ async function showChart(date) {
             labels: xVal,
             datasets: [{
                 label: 'เบอร์โทรศัพท์',
-                backgroundColor: "#b91d47",
+                backgroundColor: "#8899BB",
                 data: yVal
             }]
         },
@@ -66,12 +70,12 @@ async function showChart(date) {
     var reportChart = new Chart(canvasElement, configure);
 }
 
+
 $(document).ready(function() {
+    showChart(date);
 
     $('#date').change(function() {
-        let date = $('#date').val();
-        console.log(date);
-        showChart(date);
+        date = $('#date').val()
+        window.location.href = `form_report_page.php?date=${date}`;
     });
-    showChart($('#date').val());
 });

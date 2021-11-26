@@ -56,19 +56,9 @@
                 <tbody id="table_phone">
                 </tbody>
               </table>
-              <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                  <li class="page-item disabled">
-                    <a class="page-link">Previous</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                  </li>
-                </ul>
-              </nav>
+<div id="pagination">
+  
+</div>
           </div>
       </div>
         <div class="toast bg-danger text-white" data-bs-animation="true" id="noID" data-bs-delay="2000" data-bs-autohide="true">

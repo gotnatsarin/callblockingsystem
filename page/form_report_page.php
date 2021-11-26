@@ -1,7 +1,11 @@
-<?php require('query/checklogin.php'); ?>
+<?php 
+require('query/checklogin.php'); 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head></head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +29,7 @@
           <div class="col-4 mt-2">
             <div class="text-end mb-4">
               <lable>เดือน</lable>
-              <input type="month" class="form-control mt-2" name="date" id="date" value="<?php echo date('Y-m'); ?>" aria-label="name" aria-describedby="email-addon" maxlength="255">
+              <input type="month" class="form-control mt-2" name="date" id="date" value="<?php echo isset($_GET['date']) ? $_GET['date'] : date('Y-m'); ?>" aria-label="name" >
             </div>
           </div>
         </div>
@@ -33,12 +37,13 @@
         <div class="row mb-4">
           <div class="col-2">
           </div>
+          
           <div class="card border col-8 mb-4">
             <div class="card-header text-center">
               รายงานเบอร์โดนบล็อค
             </div>
               <div class="card-body">
-                <div class="card-text">
+                <div class="card-text" >
                   <canvas id="reportChart" style="width:100%;max-width:1000px;"></canvas>
                 </div>
               </div>
