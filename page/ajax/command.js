@@ -95,7 +95,7 @@ $(document).ready(function() {
                     $('#writefailed').toast('show');
                     setTimeout(
                         function() {
-                            $('#writesuccess').toast('hide');
+                            $('#writefailed').toast('hide');
                         }, 2000)
                 }
             }

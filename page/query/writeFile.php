@@ -7,8 +7,10 @@ $output_in = null;
 $retval_in = null;
 $output_out = null;
 $retval_out = null;
-$exeScript = null;
-$retval_script = null;
+$exeScript1 = null;
+$retval_script1 = null;
+$exeScript2 = null;
+$retval_script2 = null;
 
 $txt_in = "
 [inboundtrunk]
@@ -62,6 +64,7 @@ match=$outbound
 
 exec("echo '$txt_in' > /etc/asterisk/pjsip_inbound.conf",$output_in,$retval_in);
 exec("echo '$txt_out' > /etc/asterisk/pjsip_outbound.conf",$output_out,$retval_out);
-exec("./re_asterisk.sh",$exeScript,$retval_script);
-echo $retval_script + $retval_out + $retval_in;
+exec('sudo asterisk -rx "dialplan reload"',$exeScript1,$retval_script1);
+exec('sudo asterisk -rx "pjsip reload"',$exeScript2,$retval_script2);
+echo $retval_script1 + $retval_script2 + $retval_out + $retval_in;
 ?>

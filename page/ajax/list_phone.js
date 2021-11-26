@@ -27,7 +27,6 @@ function delPhone() {
                         $(`tbody tr`).remove()
                         try {
                             var new_data = JSON.parse(data).PhoneDataObj;
-
                             var html = ''
                             new_data.forEach((element, index) => {
                                 html += '<tr class="text-center" id="' + element['id'] + '">'
@@ -35,9 +34,9 @@ function delPhone() {
                                 html += '<td>' + element['phonenumber'] + '</td>'
                                 html += '<td>' + element['owner'] + '</td>'
                                 if (parseInt(element['status']) == 1) {
-                                    html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
+                                    html += '<td><button class="btn btn-success" value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
                                 } else {
-                                    html += '<td><button class="btn btn-success" value="' + element['id'] + '" id="Toggle">ปลดบล็อค</button></td>'
+                                    html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">ไม่บล็อค</button></td>'
                                 }
                                 html += '<td><a type="button" href="form_edit_phone.php?id=' + element['id'] + '" class="btn btn-warning">แก้ไข</a> &nbsp;'
                                 html += '<button type="button" id="deletephone" value="' + element['id'] + '" class="btn btn-danger">ลบ</button></td>'
@@ -108,10 +107,10 @@ function changePage(pages) {
                     html += '<th scope="row">' + parseInt(start + ++index) + '</th>'
                     html += '<td>' + element['phonenumber'] + '</td>'
                     html += '<td>' + element['owner'] + '</td>'
-                    if (parseInt(element['status']) == 1) {
-                        html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
+                    if (parseInt(element['status']) == 0) {
+                        html += '<td><button class="btn btn-success" value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
                     } else {
-                        html += '<td><button class="btn btn-success" value="' + element['id'] + '" id="Toggle">ปลดบล็อค</button></td>'
+                        html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">ไม่บล็อค</button></td>'
                     }
                     html += '<td><a type="button" href="form_edit_phone.php?id=' + element['id'] + '" class="btn btn-warning">แก้ไข</a> &nbsp;'
                     html += '<button type="button" id="deletephone" value="' + element['id'] + '" class="btn btn-danger">ลบ</button></td>'
@@ -189,10 +188,10 @@ function triggerStatus(ch_id) {
                                 html += '<th scope="row">' + ++index + '</th>'
                                 html += '<td>' + element['phonenumber'] + '</td>'
                                 html += '<td>' + element['owner'] + '</td>'
-                                if (parseInt(element['status']) == 1) {
-                                    html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
+                                if (parseInt(element['status']) == 0) {
+                                    html += '<td><button class="btn btn-success " value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
                                 } else {
-                                    html += '<td><button class="btn btn-success" value="' + element['id'] + '" id="Toggle">ปลดบล็อค</button></td>'
+                                    html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">ไม่บล็อค</button></td>'
                                 }
                                 html += '<td><a type="button" href="form_edit_phone.php?id=' + element['id'] + '" class="btn btn-warning">แก้ไข</a> &nbsp;'
                                 html += '<button type="button" id="deletephone" value="' + element['id'] + '" class="btn btn-danger">ลบ</button></td>'
@@ -266,10 +265,10 @@ $(document).ready(function() {
                     html += '<th scope="row">' + ++index + '</th>'
                     html += '<td>' + element['phonenumber'] + '</td>'
                     html += '<td>' + element['owner'] + '</td>'
-                    if (parseInt(element['status']) == 1) {
-                        html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
+                    if (parseInt(element['status']) == 0) {
+                        html += '<td><button class="btn btn-success" value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
                     } else {
-                        html += '<td><button class="btn btn-success" value="' + element['id'] + '" id="Toggle">ปลดบล็อค</button></td>'
+                        html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">ไม่บล็อค</button></td>'
                     }
                     html += '<td><a type="button" href="form_edit_phone.php?id=' + element['id'] + '" class="btn btn-warning">แก้ไข</a> &nbsp;'
                     html += '<button type="button" id="deletephone" value="' + element['id'] + '" class="btn btn-danger">ลบ</button></td>'
@@ -388,10 +387,10 @@ $(document).ready(function() {
                             html += '<th scope="row">' + ++index + '</th>'
                             html += '<td>' + element['phonenumber'] + '</td>'
                             html += '<td>' + element['owner'] + '</td>'
-                            if (parseInt(element['status']) == 1) {
-                                html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
+                            if (parseInt(element['status']) == 0) {
+                                html += '<td><button class="btn btn-success" value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
                             } else {
-                                html += '<td><button class="btn btn-success" value="' + element['id'] + '" id="Toggle">ปลดบล็อค</button></td>'
+                                html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">ไม่บล็อค</button></td>'
                             }
                             html += '<td><a type="button" href="form_edit_phone.php?id=' + element['id'] + '" class="btn btn-warning">แก้ไข</a> &nbsp;'
                             html += '<button type="button" id="deletephone" value="' + element['id'] + '" class="btn btn-danger">ลบ</button></td>'
@@ -450,10 +449,10 @@ $(document).ready(function() {
                             html += '<th scope="row">' + ++index + '</th>'
                             html += '<td>' + element['phonenumber'] + '</td>'
                             html += '<td>' + element['owner'] + '</td>'
-                            if (parseInt(element['status']) == 1) {
-                                html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
+                            if (parseInt(element['status']) == 0) {
+                                html += '<td><button class="btn btn-success" value="' + element['id'] + '" id="Toggle">บล็อค</button></td>'
                             } else {
-                                html += '<td><button class="btn btn-success" value="' + element['id'] + '" id="Toggle">ปลดบล็อค</button></td>'
+                                html += '<td><button class="btn btn-success active" value="' + element['id'] + '" id="Toggle">ไม่บล็อค</button></td>'
                             }
                             html += '<td><a type="button" href="form_edit_phone.php?id=' + element['id'] + '" class="btn btn-warning">แก้ไข</a> &nbsp;'
                             html += '<button type="button" id="deletephone" value="' + element['id'] + '" class="btn btn-danger">ลบ</button></td>'
