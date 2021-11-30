@@ -15,12 +15,45 @@ require('query/checklogin.php');
 
   <title>หน้าจัดการผู้ใช้</title>
 </head>
+<style>
+  a {
+  color: black;
+  }
+  tbody {
+    cursor: pointer;
+  }
+</style>
 <body>
     <?php require('components/navbar.php'); ?>
+    <div id="Modal_Desc" class="modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+          <h5 class="modal-title">รายละเอียด</h5>
+          </div>
+        <div class="modal-body"> 
+        <table class="table table-hover border">       
+        <thead>
+            <tr>
+              <th class="col-2">ลำดับที่</th>
+              <th class=" col-5 text-center">หมายเลขโทรศัพท์</th>
+              <th class="text-center">timeStamp</th>
+            </tr>
+          </thead>
+          <tbody id="modalBody">
+            </tbody>
+        </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="javascript:$('#Modal_Desc').modal('hide');">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
     <br>
       <div class="container">
         <div class="mt-4">
-          <h5>รายงานเบอร์ที่โดนบล็อค 10 อับดับ</h5>
+          <h5>รายงานเบอร์ที่โดนบล็อค 10 อันดับ</h5>
         </div>
         <br>
         <div class="row">
